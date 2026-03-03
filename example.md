@@ -19,7 +19,7 @@ nix run .#generate-keys
 kubectl apply -f k8s/ops-dashboard/
 ```
 
-# Filters Demonstrated
+# Filters
 
 ## Callout Boxes
 
