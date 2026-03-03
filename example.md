@@ -1,6 +1,6 @@
 ---
 title: "ops-vm Infrastructure Notes"
-author: "Xameer"
+author: "Sameer Gupta"
 date: "2026"
 lang: en
 fontsize: 11pt
