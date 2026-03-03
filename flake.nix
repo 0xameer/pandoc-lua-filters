@@ -33,10 +33,11 @@
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
         buildPhase = ''
-          export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
+          export HOME=$(pwd)
           export FONTCONFIG_FILE=${pkgs.makeFontsConf {
             fontDirectories = [ pkgs.noto-fonts ];
           }}
+          luaotfload-tool --update
           make pdf
         '';
         installPhase = "install -D example.pdf $out/example.pdf";
@@ -68,9 +69,7 @@
           set -e
           export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
           export FONTCONFIG_FILE=${pkgs.makeFontsConf {
-                              fontDirectories = [ pkgs.noto-fonts
-                                                  #pkgs.noto-fonts-emoji
-                                                ];
+            fontDirectories = [ pkgs.noto-fonts pkgs.noto-fonts-cjk-sans pkgs.noto-fonts-emoji ];
           }}
           pandoc example.md \
             --lua-filter=filters/main.lua \
