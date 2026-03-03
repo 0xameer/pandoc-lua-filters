@@ -9,8 +9,8 @@ FILTERS   := --lua-filter=filters/main.lua
 FLAGS     := --pdf-engine=lualatex \
              --standalone \
              -V documentclass=article \
-             -V mainfont="DejaVu Serif" \
-             -V monofont="DejaVu Sans Mono" \
+			 -V mainfont="Noto Serif" \
+-V monofont="Noto Sans Mono" \
              --highlight-style=zenburn
 
 SRCS      := example.md

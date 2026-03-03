@@ -1,42 +1,44 @@
 {
   description = "pandoc + lua-filters -> PDF via LuaLaTeX";
-
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-
       tex = pkgs.texlive.combine {
         inherit (pkgs.texlive)
           scheme-small
           luatex
           luaotfload
-          fontspec# font selection for LuaLaTeX
-          geometry# page margins
-          hyperref# colorlinks
-          xcolor# colors
-          tcolorbox# callout boxes
-          pgf# tcolorbox dependency
-          environ# tcolorbox dependency
-          trimspaces# tcolorbox dependency
-          booktabs# nice tables
-          unicode-math# math with LuaLaTeX
-          lm-math# Latin Modern math fonts
-          listings# code blocks
-          fancyvrb# pandoc code highlighting
+          fontspec
+          geometry
+          hyperref
+          xcolor
+          tcolorbox
+          pgf
+          environ
+          trimspaces
+          booktabs
+          unicode-math
+          lm-math
+          listings
+          fancyvrb
           ;
       };
-
     in
     {
       # nix build .#example-pdf
       packages.${system}.example-pdf = pkgs.stdenv.mkDerivation {
         name = "example-pdf";
         src = ./.;
-        buildInputs = [ pkgs.pandoc tex ];
-        buildPhase = "make pdf";
+        buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+        buildPhase = ''
+          export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
+          export FONTCONFIG_FILE=${pkgs.makeFontsConf {
+            fontDirectories = [ pkgs.noto-fonts ];
+          }}
+          make pdf
+        '';
         installPhase = "install -D example.pdf $out/example.pdf";
       };
 
@@ -46,9 +48,10 @@
         packages = [
           pkgs.pandoc
           tex
-          pkgs.entr # watch mode
-          pkgs.lua5_1 # run/test filters standalone
-          pkgs.luajit # alternative lua runtime
+          pkgs.noto-fonts
+          pkgs.entr
+          pkgs.lua5_1
+          pkgs.luajit
         ];
         shellHook = ''
           echo "pandoc $(pandoc --version | head -1)"
@@ -63,11 +66,20 @@
         type = "app";
         program = toString (pkgs.writeShellScript "build" ''
           set -e
+          export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
+          export FONTCONFIG_FILE=${pkgs.makeFontsConf {
+                              fontDirectories = [ pkgs.noto-fonts
+                                                  #pkgs.noto-fonts-emoji
+                                                ];
+          }}
           pandoc example.md \
             --lua-filter=filters/main.lua \
             --pdf-engine=lualatex \
             --standalone \
             -V documentclass=article \
+            -V mainfont="DejaVu Serif" \
+            -V monofont="DejaVu Sans Mono" \
+            --highlight-style=zenburn \
             -o example.pdf
           echo "Built example.pdf"
         '');
