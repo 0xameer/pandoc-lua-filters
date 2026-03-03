@@ -1,0 +1,50 @@
+% resume.tex — pandoc template for resume.md
+% adapted from pandoc-moderncv / mrzool cv-boilerplate style
+% compiled with LuaLaTeX
+\documentclass[${fontsize}]{article}
+\usepackage{fontspec}
+\usepackage[${geometry}]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{microtype}
+
+% fonts
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+
+% section styling — all lua-filter style calls go through these
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{1em}{0.5em}
+
+% hyperref
+\hypersetup{
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=blue,
+}
+
+% tighter lists
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.5em}
+\setlist[description]{style=nextline, leftmargin=6em, labelwidth=5.5em}
+
+% no page numbers on a resume
+\pagestyle{empty}
+
+\begin{document}
+
+% title block — pandoc $title$ metadata
+{\LARGE \textbf{$title$}}
+
+$if(date)$
+\hfill{\small $date$}
+$endif$
+
+\medskip
+
+$body$
+
+\end{document}
