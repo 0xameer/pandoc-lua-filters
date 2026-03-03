@@ -28,7 +28,7 @@ This is a **note**. Rendered as tcolorbox in LaTeX.
 :::
 
 ::: {.callout type="warning"}
-Check your agenix secrets before rebuilding nodes.
+Check your agenix secrets before rebuilding nodes. obviously!
 :::
 
 ::: {.callout type="tip"}
