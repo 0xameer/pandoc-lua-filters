@@ -1,0 +1,40 @@
+name: Build Resume PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'example.md'
+      - *.lua'
+
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: cachix/install-nix-action@v26
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Build PDFs
+        run: nix build  .#example-pdf
+
+
+      - name: Upload example PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-pdf
+          path: result-example/example.pdf
+
+      - name: Commit built PDFs to repo
+        if: github.ref == 'refs/heads/main'
+        run: |
+          nix run .#build
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
