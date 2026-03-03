@@ -1,0 +1,30 @@
+build-pdfs:
+  rules:
+    - changes:
+        - resume.md
+        - example.md
+        - filters/**/*.lua
+        - templates/**/*
+        - .gitlab-ci.yml
+  image: nixos/nix:latest
+  before_script:
+    - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+  script:
+    - nix build .#resume-pdf  --out-link result-resume
+    - nix build .#example-pdf --out-link result-example
+  artifacts:
+    paths:
+      - result-resume/resume.pdf
+      - result-example/example.pdf
+  after_script:
+    - |
+      if [ "$CI_COMMIT_BRANCH" = "main" ]; then
+        cp result-resume/resume.pdf resume.pdf
+        cp result-example/example.pdf example.pdf
+        git config user.name  "gitlab-ci-bot"
+        git config user.email "gitlab-ci-bot@noreply.gitlab.com"
+        git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
+        git add resume.pdf example.pdf
+        git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
+        git push origin main
+      fi
