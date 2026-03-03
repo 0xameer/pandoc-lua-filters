@@ -37,7 +37,7 @@
         src = ./.;
         buildInputs = [ pkgs.pandoc tex ];
         buildPhase = "make pdf";
-        #       installPhase = "install -D example.pdf $out/example.pdf";
+        installPhase = "install -D example.pdf $out/example.pdf";
       };
 
       # nix develop
