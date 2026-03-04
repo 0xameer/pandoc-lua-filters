@@ -8,6 +8,18 @@ geometry: margin=2.5cm
 colorlinks: true
 ---
 
+# NixOS and the Congruence Problem
+
+This document demonstrates **pandoc** with custom Lua filters compiled to PDF
+via **LuaLaTeX**, using infrastructure notes as the content substrate.
+
+Inline code: `kubectl get nodes` and a block:
+
+```bash
+nix run .#generate-keys
+kubectl apply -f k8s/ops-dashboard/
+```
+
 # Reproducible systems, & Congruence
 
 This is verifiable with `nix build --rebuild`, which builds twice and compares.
@@ -72,10 +84,9 @@ All filters are composable --- chain them with multiple `--lua-filter` flags.
 ---
 
 [^1]: Traugott, S. & Brown, J. (2002). *Why Order Matters: Turing Equivalence
-in Automated Systems Administration*. Proceedings of the 16th USENIX Large
-Installation Systems Administration Conference (LISA '02).
-<https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/>
+in Automated Systems Administration*. USENIX LISA '02.
+[Full paper](https://www.usenix.org/legacy/event/lisa02/tech/full_papers/traugott/traugott_html/)
 
 [^2]: Dellaiera, P. (2024). *Reproducibility in Software Engineering*. Master's
-thesis, University of Mons. Supervised by Tom Mens. Zenodo (v6, February 2026).
-<https://doi.org/10.5281/zenodo.18701980>
+thesis, University of Mons. Supervised by Tom Mens. Zenodo v6, February 2026.
+[DOI 10.5281/zenodo.18701980](https://doi.org/10.5281/zenodo.18701980)

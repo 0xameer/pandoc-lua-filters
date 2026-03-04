@@ -92,9 +92,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ## Communication
 
-1st Hindi
-2nd English
-
+1st Hindi \ 2nd English
 
 | xameer@disroot.org | +91 (7)99 311 0170 | Ananthapur, India | [portfolio](https://hub.vocalcat.com/0xameer)|
 |:---|:---|:---|---:|
