@@ -1,30 +1,32 @@
 build-pdfs:
   rules:
     - changes:
-        - resume.md
         - example.md
+        - flake.nix
+        - Makefile
         - filters/**/*.lua
         - templates/**/*
         - .gitlab-ci.yml
   image: nixos/nix:latest
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+    - nix-env -iA nixpkgs.git  # ensure git is available in nixos/nix image
   script:
-    - nix build .#resume-pdf  --out-link result-resume
     - nix build .#example-pdf --out-link result-example
   artifacts:
     paths:
-      - result-resume/resume.pdf
       - result-example/example.pdf
+    when: on_success          # only upload artifact if build succeeded
   after_script:
     - |
-      if [ "$CI_COMMIT_BRANCH" = "main" ]; then
-        cp result-resume/resume.pdf resume.pdf
+      # only commit-back if script succeeded AND we are on main
+      if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
+        nix-env -iA nixpkgs.git
         cp result-example/example.pdf example.pdf
         git config user.name  "gitlab-ci-bot"
         git config user.email "gitlab-ci-bot@noreply.gitlab.com"
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
-        git add resume.pdf example.pdf
+        git add example.pdf
         git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
         git push origin main
       fi

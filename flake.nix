@@ -16,6 +16,7 @@
           xcolor
           tcolorbox
           pgf
+          tikz-cd
           environ
           trimspaces
           booktabs
@@ -23,7 +24,12 @@
           lm-math
           listings
           fancyvrb
+          mathtools# math-format.lua
+          lualatex-math# math-format.lua
           ;
+      };
+      fontsConf = pkgs.makeFontsConf {
+        fontDirectories = [ pkgs.noto-fonts ];
       };
     in
     {
@@ -32,11 +38,10 @@
         name = "example-pdf";
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+        # nix sandbox issue
         buildPhase = ''
           export HOME=$(pwd)
-          export FONTCONFIG_FILE=${pkgs.makeFontsConf {
-            fontDirectories = [ pkgs.noto-fonts ];
-          }}
+          export FONTCONFIG_FILE=${fontsConf}
           luaotfload-tool --update
           make pdf
         '';
@@ -53,8 +58,10 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
+
         ];
         shellHook = ''
+          export FONTCONFIG_FILE=${fontsConf}
           echo "pandoc $(pandoc --version | head -1)"
           echo "make       -> example.pdf"
           echo "make watch -> rebuild on change"
@@ -67,17 +74,17 @@
         type = "app";
         program = toString (pkgs.writeShellScript "build" ''
           set -e
-          export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
-          export FONTCONFIG_FILE=${pkgs.makeFontsConf {
-            fontDirectories = [ pkgs.noto-fonts pkgs.noto-fonts-cjk-sans pkgs.noto-fonts-emoji ];
-          }}
+          export HOME=$(mktemp -d)
+          export FONTCONFIG_FILE=${fontsConf}
+          luaotfload-tool --update
           pandoc example.md \
             --lua-filter=filters/main.lua \
             --pdf-engine=lualatex \
             --standalone \
             -V documentclass=article \
-            -V mainfont="DejaVu Serif" \
-            -V monofont="DejaVu Sans Mono" \
+            -V mainfont="Noto Serif" \
+            -V sansfont="Noto Sans" \
+            -V monofont="Noto Sans Mono" \
             --highlight-style=zenburn \
             -o example.pdf
           echo "Built example.pdf"
