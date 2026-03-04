@@ -77,11 +77,8 @@ programming and formal package management --- and that lineage shows. It does
 not try to converge a running system toward a specification. It makes the
 specification and the system the same object.
 
-# Conclusion
-
-All filters are composable --- chain them with multiple `--lua-filter` flags.
-
 ---
+
 
 [^1]: Traugott, S. & Brown, J. (2002). *Why Order Matters: Turing Equivalence
 in Automated Systems Administration*. USENIX LISA '02.
