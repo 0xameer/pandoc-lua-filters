@@ -26,7 +26,23 @@
           fancyvrb
           mathtools# math-format.lua
           lualatex-math# math-format.lua
-          framed# required by fancyvrb/pandoc highlighting
+          framed# pandoc highlighting shaded environments
+          selnolig# LuaLaTeX ligature suppression
+          microtype# pandoc default template
+          bookmark# hyperref bookmark support
+          upquote# verbatim straight quotes
+          footnotehyper# pandoc footnote handling
+          soul# strikethrough support
+          xurl# URL line breaking
+          float# figure placement [H]
+          longtable# pandoc table output
+          multirow# table cells spanning rows
+          wrapfig# wrapped figures
+          rotating# sideways figures/tables
+          capt-of# captions outside floats
+          iftex# \ifLuaTeX conditionals
+          needspace# tcolorbox dependency
+          mdframed# framed environments for callouts
           ;
       };
       fontsConf = pkgs.makeFontsConf {
@@ -39,6 +55,7 @@
         name = "example-pdf";
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+        # nix sandboxed so both $HOME and $OSFONTDIR need bet stated
         buildPhase = ''
           export HOME=$(pwd)
           export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
