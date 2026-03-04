@@ -1,4 +1,5 @@
 {
+
   description = "pandoc + lua-filters -> PDF via LuaLaTeX";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs = { self, nixpkgs }:
@@ -7,7 +8,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       tex = pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-full# everything  no more missing .sty ever
+          scheme-full# everything \u2014 no more missing .sty ever
           luaotfload
           lualatex-math
           selnolig
@@ -18,9 +19,9 @@
       };
     in
     {
-      # nix build .#example-pdf
-      packages.${system}.example-pdf = pkgs.stdenv.mkDerivation {
-        name = "example-pdf";
+      # nix build .#system-design-pdf
+      packages.${system}.system-design-pdf = pkgs.stdenv.mkDerivation {
+        name = "system-design-pdf";
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
         buildPhase = ''
@@ -28,9 +29,24 @@
           export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
           export FONTCONFIG_FILE=${fontsConf}
           luaotfload-tool --update
-          make pdf
+          make system-design.pdf
         '';
-        installPhase = "install -D example.pdf $out/example.pdf";
+        installPhase = "install -D system-design.pdf $out/system-design.pdf";
+      };
+
+      # nix build .#resume-pdf
+      packages.${system}.resume-pdf = pkgs.stdenv.mkDerivation {
+        name = "resume-pdf";
+        src = ./.;
+        buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+        buildPhase = ''
+          export HOME=$(pwd)
+          export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
+          export FONTCONFIG_FILE=${fontsConf}
+          luaotfload-tool --update
+          make resume.pdf
+        '';
+        installPhase = "install -D resume.pdf $out/resume.pdf";
       };
 
       # nix develop
@@ -43,14 +59,14 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
-          # removed pkgs.pandoc-lua-filters  conflicts with local filters
+          # removed pkgs.pandoc-lua-filters \u2014 conflicts with local filters
         ];
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
           echo "pandoc $(pandoc --version | head -1)"
-          echo "make       -> example.pdf"
+          echo "make       -> system-design.pdf"
           echo "make watch -> rebuild on change"
-          echo "make html  -> example.html"
+          echo "make html  -> system-design.html"
         '';
       };
 
@@ -62,7 +78,7 @@
           export HOME=$(mktemp -d)
           export FONTCONFIG_FILE=${fontsConf}
           luaotfload-tool --update
-          pandoc example.md \
+          pandoc system-design.md \
             --lua-filter=filters/main.lua \
             --pdf-engine=lualatex \
             --standalone \
@@ -71,8 +87,8 @@
             -V sansfont="Noto Sans" \
             -V monofont="Noto Sans Mono" \
             --highlight-style=zenburn \
-            -o example.pdf
-          echo "Built example.pdf"
+            -o system-design.pdf
+          echo "Built system-design.pdf"
         '');
       };
     };

@@ -1,118 +1,100 @@
+---
+title: "Sameer Gupta"
+author: "Sameer Gupta"
+date: "2026"
+lang: en
+fontsize: 11pt
+geometry: margin=2.5cm
+colorlinks: true
+---
 
 # Sameer Gupta
 
-```
-I have experience with self hosting, training and deploying S
-data lakes, on a VM, container, hybrid clouds and bare metal
-```
-# Stack
 
-**Tools and
-Languages**
+## Summary
 
-```
-For almost a decade now, my focus has gradually shifted towards functional Pro­
-gramming.
-```
-- PyO3, Web-assembly and Rust.
-- Haskell and CSS (Clay Library).
-- Linux router, System, container, and VM administration.
-- Data engineering with MinIo, Virtfs, and S3fs filesystems.
-- Foss project maintenance with git and code review.
-- Emacs formatters, LSP for these languages and Nix.
-- _Misc._ Markup and scripting languages for documentation and DevOps.
+::: {.callout type="note"}
+Systems engineer from Infra as Code domain, with ~ a decade long experience of
+managing live infra and sandboxed build reproducibility with functional programming.
+:::
 
-Social : I commit to **Git, Blog, and post on Micro-Blog**
+## Stack
 
-**Embedded** In past 3 years I have been using Rust FFI for embedded work.
+### Languages & Tools
 
-Boards : **Nano-Pi, PineBoard and RiscV**
+- **Functional Programming**: Haskell, Rust.
+- **Infrastructure**: Kubernetes, Terraform, S3, Prometheus, Grafana.
+- **Containers**: WebAssembly, Podman, K8S, K3S pods and sandboxing with Nix.
+- **Frontend**: CSS (Clay), Pandoc.
+- **Scripting**: Lua, Emacs Lisp, Bash, Python, Yaml.
+- **Network**: Virtual Distributed Ethernet, Linux, Homelab Mesh, Intel and open hardware.
+- **DevOps**: GitLab CI, Secret Provisioning, Community code.
 
-# Experience
+### FOSS & Open Source
 
-## So far, I've have been working at different roles at D.A.O., early stage startups,
+::: {.callout type="tip"}
+A microservice written in rust for a wasm container, later written as a nixos
+module for equivalent systemd service.
+:::
 
-## and SMEs, in varying capacities as required, since I was a sophomore.
+---
 
-### 2023-24 :
+## Experience
 
-**Sr. Haskell
-developer,
-Haskledger**
+### 2024--25 | Freelance Trainer --- Data & Cloud Infrastructure, Hyderabad.
 
-```
-My proposal was focused on the utilization of network namespaces by processes
-for process isolation, to reduce the conflicts and security issues from the use of
-ports, and port 0 socket; for the data integrity in Cardano.
-```
-It entailed
+::: {.callout type="tip"}
+Trained engineers in data lake architecture --- Medallion and Data Vault patterns
+for durable, auditable foundations --- cloud-native Kubernetes, NixOS reproducible
+deployments, and hybrid models balancing cost and latency.
+:::
 
-- Partnering with the D.A.O. Konma, Chennai for pitching it to Cardano Community.
-- Community voted in support of **Haskledger** grants in Fund-11, Ideascale.
-- I mainly leveraged Haskell's function aliasing, automatic derivation.
+### 2023--24 | Sr. Haskell Developer --- Haskledger
 
-2019-23 : **Freelance, Network Programmer**
+::: {.callout type="warning"}
+Proposal: network-namespace process isolation to reduce port conflicts and improve
+data integrity in Cardano. Community voted in support in Fund-11, Ideascale.
+:::
 
+- Partnered with D.A.O. Konma, Chennai to pitch to the Cardano community
+- Leveraged Haskell's function aliasing and automatic derivation
 
-Prototyping interconnection services for Crypto Entrepreneurs, for their Crypto mining data centers.
+### 2019--23 | Freelance Network Programmer
 
-Role and responsibilities
+Prototyping interconnection services for crypto mining data centres.
 
-- From input value preposition to feasibility report, simulation, budgeting, procurement and a work­
-    ing prototype, draft pitch doc.
-- Setting up p2p sharing with IPFS.
-- self hosting service on Linux, with Podman, containers.
-- Used cloud VPC, VM, and Serverless on network tunnels.
-- I Learned to prototype and prepare the technical part of the pitch.
+- Full cycle: value proposition \u2192 feasibility \u2192 simulation \u2192 prototype \u2192 pitch
+- IPFS P2P, self-hosted Linux services with Podman, cloud VPC and serverless on tunnels
 
-2016-19 : **Freelance, Web developer**
+### 2016--19 | Freelance Web Developer
 
-Front-end features and fixing UI issues for seed funded product startups.
+Front-end features and UI fixes for seed-funded startups; web admin, app firewalls.
 
-- Collaboration with server-side teams for the deliverables.
-- Participation in Web admin, pitch preparation, strategy, & app firewalls.
+### 2015--16 | Data Science Lead --- Examify, Mumbai
 
-2015-16 : **Data science lead - Examify, Mumbai**
+NLP pattern recognition; ML with CUDA; reported to CTO and CEO.
 
-Pattern recognition for NLP corpus, I would report the CTO and the CEO for the progress & require­
-ments of the work.
+### 2010--12 | Faculty, Physics
 
-- I Worked with their CEO, CTO and angel investor.
-- Linux programming & Systems Networking
-- Scripting Data scrapping and auto labeling.
-- ML libraries, with CUDA for training data.
+Preparatory physics for IIT-JEE at commercial institutes; content team collaboration.
 
-2010-12 : **Faculty, Physics**
+---
 
-For preparatory physics courses targeted at undergraduate engineering entrance exams renowned
-commercial institutes, since before I joined college and continued it for two more years.
+## Education
 
-- I would fine-tune the lectures, for inclusive learning outcomes.
-- I would also work with in the Content teams.
+**2006--2010** | B.Tech, M.E.M.S. --- Indian Institute of Technology Bombay
 
-# Education
+Applied Physics, Mathematics, CS. Winter intern at I.I.M. Bangalore (traffic policy R&A).
 
-2006-2010 : **Undergraduate Program, M.E.M.S** ; Indian Institute of Technology (Bombay).
+::: {.callout type="tip"}
+Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
+:::
 
-## I studied introductory and advanced Applied Physics, Math courses and a cs-
+## Communication
 
-## class.
-
-**Winter Intern** Research & Analysis of the traffic policy in I.I.M. (Bangalore).
-
-**Dorm startup** _JeeCarnot_ Statistical Analyses of Competitive Exams result outcome.
-
-**Self Hosting**
-
-- Data Caches.
-- Cloud native and web based apps for analytics, proxy, and monitoring systems.
+1st Hindi
+2nd English
 
 
-**Communication** :
-
-- 1st Hindi
-- 2nd English
-
-```
-xameer@disroot.org  +91 (7)99 311 0170 \ 302, Sai Gawri - Ananthapur, India
-```
+| xameer@disroot.org | +91 (7)99 311 0170 | Ananthapur, India | [portfolio](https://hub.vocalcat.com/0xameer)|
+|:---|:---|:---|---:|

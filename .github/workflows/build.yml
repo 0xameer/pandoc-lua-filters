@@ -1,12 +1,12 @@
-name: Build Resume PDF
+name: Build PDFs
 on:
   push:
     branches: [main]
     paths:
       - 'resume.md'
-      - 'example.md'
-      - 'flake.nix'
+      - 'system-design.md'
       - 'preamble.tex'
+      - 'flake.nix'
       - 'Makefile'
       - 'filters/**.lua'
       - 'templates/**'
@@ -26,20 +26,28 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
       - name: Build PDFs
-        run: nix build .#example-pdf --out-link result-example
-      - name: Upload example PDF
+        run: |
+          nix build .#system-design-pdf --out-link result-system-design
+          nix build .#resume-pdf        --out-link result-resume
+      - name: Upload system-design PDF
         uses: actions/upload-artifact@v4
         with:
-          name: example-pdf
-          path: result-example/example.pdf
+          name: system-design-pdf
+          path: result-system-design/system-design.pdf
+      - name: Upload resume PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: result-resume/resume.pdf
       - name: Commit built PDFs to repo
         if: github.ref == 'refs/heads/main'
         run: |
-          cp result-example/example.pdf example.pdf
+          cp result-system-design/system-design.pdf system-design.pdf
+          cp result-resume/resume.pdf resume.pdf
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git add example.pdf
+          git add system-design.pdf resume.pdf
           git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
           git push
         env:
