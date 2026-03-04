@@ -10,7 +10,7 @@ colorlinks: true
 # Introduction
 
 This document demonstrates **pandoc** with custom Lua filters compiled to PDF via **LuaLaTeX**.
-My main challenge so far has been to get the fonts and packages right...
+My main challenge so far has been to get the fonts and packages right.
 
 Inline code: `kubectl get nodes` and a block:
 

@@ -1,5 +1,9 @@
-## Lua filters and Pandoc
+# Lua filters and Pandoc
 
+[Binary Cache] re for my gitlab ci.
+
+
+# Notes
 
 GITLAB_TOKEN
 as a Project Access Token with write_repository. The built-in CI_JOB_TOKEN can only read,
@@ -32,3 +36,5 @@ All other handlers (Div, HorizontalRule, CodeBlock, Para) are globals and don't 
 
 What Meta does:
 it processes the YAML front matter of your document. Filters use it to programmatically inject \usepackage{...} into the LaTeX preamble via header-includes. Without it, callout.lua can't load tcolorbox before the document body uses it.
+
+[Binary Cache]: https://app.cachix.org/cache/pandoc-lua-filters
