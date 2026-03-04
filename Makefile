@@ -9,7 +9,7 @@ FLAGS     := --pdf-engine=lualatex \
              -V monofont="Noto Sans Mono" \
              --highlight-style=zenburn \
              --include-in-header=preamble.tex
-HTML_FLAGS := --standalone --to=html5
+HTML_FLAGS := --standalone --to=html5 --mathjax
 
 SRCS     := $(wildcard markdown/*.md)
 PDFS     := $(patsubst markdown/%.md, output/%.pdf, $(SRCS))
