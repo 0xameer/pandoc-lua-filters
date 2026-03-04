@@ -13,18 +13,18 @@
           luatex
           luaotfload
           fontspec
-          tikz-cd# commutative diagrams  NOT in scheme-medium
+          tikz-cd# commutative diagrams \u2014 NOT in scheme-medium
           unicode-math# NOT in scheme-medium
           lm-math# NOT in scheme-medium
           lualatex-math# NOT in scheme-medium
           mathtools# NOT in scheme-medium
           selnolig# NOT in scheme-medium
-          framed# NOT in scheme-medium  pandoc highlight shading
-          tcolorbox# NOT in scheme-medium  callout.lua
-          environ# tcolorbox dep  NOT in scheme-medium
-          trimspaces# tcolorbox dep  NOT in scheme-medium
-          needspace# tcolorbox dep  NOT in scheme-medium
-          mdframed# tcolorbox skins dep  NOT in scheme-medium
+          framed# NOT in scheme-medium \u2014 pandoc highlight shading
+          tcolorbox# NOT in scheme-medium \u2014 callout.lua
+          environ# tcolorbox dep \u2014 NOT in scheme-medium
+          trimspaces# tcolorbox dep \u2014 NOT in scheme-medium
+          needspace# tcolorbox dep \u2014 NOT in scheme-medium
+          mdframed# tcolorbox skins dep \u2014 NOT in scheme-medium
           ;
       };
       fontsConf = pkgs.makeFontsConf {
@@ -33,13 +33,16 @@
     in
     {
       # nix build .#example-pdf
+      /*
+        // suffix is a kpathsea/luaotfload convention meaning "this directory and all subdirectories recursively". Without it, luaotfload only scans the top-level directory and misses the actual font files which are nested under truetype/noto/ inside the share/fonts tree.
+      */
       packages.${system}.example-pdf = pkgs.stdenv.mkDerivation {
         name = "example-pdf";
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
         buildPhase = ''
           export HOME=$(pwd)
-          export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
+          export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
           export FONTCONFIG_FILE=${fontsConf}
           luaotfload-tool --update
           make pdf
@@ -57,7 +60,7 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
-          # removed pkgs.pandoc-lua-filters  conflicts with local filters
+          # removed pkgs.pandoc-lua-filters \u2014 conflicts with local filters
         ];
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
@@ -71,7 +74,6 @@
       # nix run .#build
       apps.${system}.build = {
         type = "app";
-        # parsing filters
         program = toString (pkgs.writeShellScript "build" ''
           set -e
           export HOME=$(mktemp -d)
