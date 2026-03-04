@@ -20,6 +20,22 @@ nix run .#generate-keys
 kubectl apply -f k8s/ops-dashboard/
 ```
 
+
+# Nix options
+
+In the process, I have written my own
+
+- flake with a nixos service module
+``` nix
+      nixosModules.wasmedge-containerd = { config, pkgs, lib, ... }: {
+
+        options.services.wasmedge-containerd = {
+          enable = lib.mkEnableOption "WasmEdge containerd runtime via crun";
+        };
+```
+
+
+
 # Filters
 
 ## Callout Boxes

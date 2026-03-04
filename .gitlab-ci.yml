@@ -10,7 +10,7 @@ build-pdfs:
   image: nixos/nix:latest
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
-    - nix-env -iA nixpkgs.git  # ensure git is available in nixos/nix image
+    # git-minimal is already in nixos/nix image, no need to install
   script:
     - nix build .#example-pdf --out-link result-example
   artifacts:
@@ -21,7 +21,6 @@ build-pdfs:
     - |
       # only commit-back if script succeeded AND we are on main
       if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
-        nix-env -iA nixpkgs.git
         cp result-example/example.pdf example.pdf
         git config user.name  "gitlab-ci-bot"
         git config user.email "gitlab-ci-bot@noreply.gitlab.com"

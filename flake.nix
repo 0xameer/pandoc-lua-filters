@@ -15,8 +15,8 @@
           hyperref
           xcolor
           tcolorbox
-          pgf
-          tikz-cd
+          pgf# includes TikZ \u2014 do NOT add tikz separately
+          tikz-cd# commutative diagrams for category theory
           environ
           trimspaces
           booktabs
@@ -38,9 +38,9 @@
         name = "example-pdf";
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
-        # nix sandbox issue
         buildPhase = ''
           export HOME=$(pwd)
+          export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
           export FONTCONFIG_FILE=${fontsConf}
           luaotfload-tool --update
           make pdf
@@ -58,7 +58,7 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
-
+          # removed pkgs.pandoc-lua-filters \u2014 conflicts with local filters
         ];
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
