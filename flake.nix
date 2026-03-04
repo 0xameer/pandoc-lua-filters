@@ -26,6 +26,7 @@
           fancyvrb
           mathtools# math-format.lua
           lualatex-math# math-format.lua
+          framed# required by fancyvrb/pandoc highlighting
           ;
       };
       fontsConf = pkgs.makeFontsConf {

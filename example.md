@@ -33,7 +33,7 @@ In the process, I have written my own
           enable = lib.mkEnableOption "WasmEdge containerd runtime via crun";
         };
 ```
-
+- The use case of Lua scripting goes beyond such docs, I do it for Oxwm (my wm) & LuaKit browser too.
 
 
 # Filters
