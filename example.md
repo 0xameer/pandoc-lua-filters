@@ -34,7 +34,6 @@ In the process, I have written my own
         };
 ```
 - My use case of embeddable Lua scripting goes beyond LuaTex, I do it for Oxwm (my Wm) & LuaKit browser too.
-- More to add.
 
 # Filters
 

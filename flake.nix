@@ -35,14 +35,12 @@
           soul# strikethrough support
           xurl# URL line breaking
           float# figure placement [H]
-          longtable# pandoc table output
           multirow# table cells spanning rows
           wrapfig# wrapped figures
           rotating# sideways figures/tables
           capt-of# captions outside floats
-          iftex# \ifLuaTeX conditionals
           needspace# tcolorbox dependency
-          mdframed# framed environments for callouts
+          mdframed# framed environments
           ;
       };
       fontsConf = pkgs.makeFontsConf {
@@ -55,7 +53,6 @@
         name = "example-pdf";
         src = ./.;
         buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
-        # nix sandboxed so both $HOME and $OSFONTDIR need bet stated
         buildPhase = ''
           export HOME=$(pwd)
           export OSFONTDIR=${pkgs.noto-fonts}/share/fonts
