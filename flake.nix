@@ -1,5 +1,4 @@
 {
-
   description = "pandoc + lua-filters -> PDF via LuaLaTeX";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs = { self, nixpkgs }:
@@ -19,34 +18,38 @@
       };
     in
     {
-      # nix build .#system-design-pdf
-      packages.${system}.system-design-pdf = pkgs.stdenv.mkDerivation {
-        name = "system-design-pdf";
-        src = ./.;
-        buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
-        buildPhase = ''
-          export HOME=$(pwd)
-          export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
-          export FONTCONFIG_FILE=${fontsConf}
-          luaotfload-tool --update
-          make system-design.pdf
-        '';
-        installPhase = "install -D system-design.pdf $out/system-design.pdf";
-      };
+      packages.${system} = {
 
-      # nix build .#resume-pdf
-      packages.${system}.resume-pdf = pkgs.stdenv.mkDerivation {
-        name = "resume-pdf";
-        src = ./.;
-        buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
-        buildPhase = ''
-          export HOME=$(pwd)
-          export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
-          export FONTCONFIG_FILE=${fontsConf}
-          luaotfload-tool --update
-          make resume.pdf
-        '';
-        installPhase = "install -D resume.pdf $out/resume.pdf";
+        # nix build .#system-design-pdf
+        system-design-pdf = pkgs.stdenv.mkDerivation {
+          name = "system-design-pdf";
+          src = ./.;
+          buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+          buildPhase = ''
+            export HOME=$(pwd)
+            export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
+            export FONTCONFIG_FILE=${fontsConf}
+            luaotfload-tool --update
+            make system-design.pdf
+          '';
+          installPhase = "install -D system-design.pdf $out/system-design.pdf";
+        };
+
+        # nix build .#resume-pdf
+        resume-pdf = pkgs.stdenv.mkDerivation {
+          name = "resume-pdf";
+          src = ./.;
+          buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+          buildPhase = ''
+            export HOME=$(pwd)
+            export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
+            export FONTCONFIG_FILE=${fontsConf}
+            luaotfload-tool --update
+            make resume.pdf
+          '';
+          installPhase = "install -D resume.pdf $out/resume.pdf";
+        };
+
       };
 
       # nix develop
@@ -64,9 +67,9 @@
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
           echo "pandoc $(pandoc --version | head -1)"
-          echo "make       -> system-design.pdf"
+          echo "make       -> example.pdf"
           echo "make watch -> rebuild on change"
-          echo "make html  -> system-design.html"
+          echo "make html  -> example.html"
         '';
       };
 
