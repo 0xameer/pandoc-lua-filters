@@ -26,6 +26,12 @@ jobs:
             experimental-features = nix-command flakes
       - name: Build all PDFs
         run: nix build .#all-pdfs --out-link result-pdfs
+      - name: Verify PDFs rebuilt
+        run: |
+          for md in markdown/*.md; do
+            find result-pdfs/ -name "*.pdf" -newer "$md" | grep . \
+              || (echo "STALE: no PDF newer than $md" && exit 1)
+          done
       - name: Install pandoc
         run: |
           sudo apt-get update -qq

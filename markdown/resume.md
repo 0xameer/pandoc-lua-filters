@@ -84,7 +84,7 @@ Preparatory physics for IIT-JEE at commercial institutes; content team collabora
 
 **2006--2010** | B.Tech, M.E.M.S. --- Indian Institute of Technology Bombay
 
-Applied Physics, Mathematics, CS. Winter intern at I.I.M. Bangalore (traffic policy R&A).
+Applied Physics, Mathematics, CS-101. Winter intern at I.I.M. Bangalore (traffic policy R&A).
 
 ::: {.callout type="tip"}
 Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
@@ -92,8 +92,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ## Communication
 
-1st Hindi
-
+1st Hindi\
 2nd English
 
 ::: {.contact-footer}
