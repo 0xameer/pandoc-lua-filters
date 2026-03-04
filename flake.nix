@@ -71,6 +71,7 @@
       # nix run .#build
       apps.${system}.build = {
         type = "app";
+        # parsing filters
         program = toString (pkgs.writeShellScript "build" ''
           set -e
           export HOME=$(mktemp -d)

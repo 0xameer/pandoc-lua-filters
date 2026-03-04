@@ -11,8 +11,21 @@ pandoc ${1%%.*}.org \
     --output=${1%%.*}.md
     ```
 
-# TexLive CI notes
+# TexLive CI
 
 scheme-full  ~4GB
 
-In CI that 4GB gets downloaded and unpacked every run unless you cache the nix store. For your use case scheme-medium is the sweet spot \u2014 it covers everything pandoc + LuaLaTeX needs. scheme-full would only save time if you were constantly hitting missing packages from obscure CTAN packages, which you won't be with standard pandoc output.
+In CI that 4GB gets downloaded and unpacked every run unless you cache the nix store. For your use case scheme-medium is
+the sweet spot  it covers everything pandoc + LuaLaTeX needs. scheme-full would only save time if you were
+constantly hitting missing packages from obscure CTAN packages, which you won't be with standard pandoc output.
+
+# Lua filters
+
+Lua globals are shared across dofile calls. Every filter that defines Meta = function(m) ... end silently clobbers the previous one. This main.lua collects each filter's Meta into a table and installs one final chained handler that runs all of them in order.
+callout.lua injects tcolorbox, math-format.lua injects lualatex-math and mathtools, diagram.lua injects tikz  now all three will actually run.
+
+in main.lua
+Meta = nil before each dofile ensures we detect exactly which files define a Meta handler
+Each one gets collected into meta_handlers
+One final Meta is installed that runs all of them in sequence
+All other handlers (Div, HorizontalRule, CodeBlock, Para) are globals and don't conflict \u2014 only Meta had the collision problem
