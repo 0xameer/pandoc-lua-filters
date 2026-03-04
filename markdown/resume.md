@@ -92,7 +92,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ## Communication
 
-1st Hindi \
+1st Hindi
 
 2nd English
 
