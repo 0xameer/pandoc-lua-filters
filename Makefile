@@ -1,8 +1,3 @@
-# Makefile for pandoc + lua-filters -> PDF via LuaLaTeX
-# Usage: make           -> example.pdf
-#        make watch     -> rebuild on change (requires entr)
-#        make clean     -> remove outputs
-#        make html      -> example.html
 PANDOC   := pandoc
 FILTERS  := --lua-filter=filters/main.lua
 FLAGS    := --pdf-engine=lualatex \
@@ -13,25 +8,32 @@ FLAGS    := --pdf-engine=lualatex \
             -V monofont="Noto Sans Mono" \
             --highlight-style=zenburn \
             --include-in-header=preamble.tex
-SRCS     := example.md
-PDF_OUT  := example.pdf
-HTML_OUT := example.html
+HTML_FLAGS := --standalone --to=html5
 
 .PHONY: all pdf html watch clean
-all: pdf
+all: pdf html
 
-pdf: $(PDF_OUT)
-$(PDF_OUT): $(SRCS) filters/*.lua
-	$(PANDOC) $(SRCS) $(FILTERS) $(FLAGS) -o $@
+pdf: system-design.pdf resume.pdf
+html: system-design.html resume.html
+
+system-design.pdf: system-design.md filters/*.lua preamble.tex
+	$(PANDOC) $< $(FILTERS) $(FLAGS) -o $@
 	@echo "Built $@"
 
-html: $(HTML_OUT)
-$(HTML_OUT): $(SRCS) filters/*.lua
-	$(PANDOC) $(SRCS) $(FILTERS) --standalone --to=html5 -o $@
+resume.pdf: resume.md filters/*.lua preamble.tex
+	$(PANDOC) $< $(FILTERS) $(FLAGS) -o $@
+	@echo "Built $@"
+
+system-design.html: system-design.md filters/*.lua
+	$(PANDOC) $< $(FILTERS) $(HTML_FLAGS) -o $@
+	@echo "Built $@"
+
+resume.html: resume.md filters/*.lua
+	$(PANDOC) $< $(FILTERS) $(HTML_FLAGS) -o $@
 	@echo "Built $@"
 
 watch:
-	find . -name "*.md" -o -name "*.lua" | entr -c make pdf
+	find . -name "*.md" -o -name "*.lua" | entr -c make all
 
 clean:
-	rm -f $(PDF_OUT) $(HTML_OUT) *.aux *.log *.out
+	rm -f *.pdf *.html *.aux *.log *.out
