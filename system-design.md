@@ -8,7 +8,7 @@ geometry: margin=2.5cm
 colorlinks: true
 ---
 
-# Reproducibility and Congruence
+# Reproducible systems, and Congruence
 
 This is verifiable with `nix build --rebuild`, which builds twice and compares.
 Deployment via `deploy-rs` or `nixos-rebuild` over SSH performs an atomic
