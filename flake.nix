@@ -17,6 +17,7 @@
           lualatex-math# math-format.lua
           mathtools# math-format.lua
           selnolig# LuaLaTeX ligature suppression
+          framed# pandoc --highlight-style shaded environments
           ;
       };
       fontsConf = pkgs.makeFontsConf {
