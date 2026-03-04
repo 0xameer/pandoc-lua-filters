@@ -7,17 +7,24 @@
       pkgs = nixpkgs.legacyPackages.${system};
       tex = pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-medium# covers all standard packages incl. latexextra collections
+          scheme-medium# covers geometry, hyperref, xcolor, booktabs, listings,
+          # fancyvrb, pgf, float, wrapfig, capt-of, soul, microtype,
+          # multirow, bookmark, upquote, footnotehyper, xurl and more
           luatex
           luaotfload
           fontspec
-          tikz-cd# commutative diagrams for category theory
-          unicode-math
-          lm-math
-          lualatex-math# math-format.lua
-          mathtools# math-format.lua
-          selnolig# LuaLaTeX ligature suppression
-          framed# pandoc --highlight-style shaded environments
+          tikz-cd# commutative diagrams  NOT in scheme-medium
+          unicode-math# NOT in scheme-medium
+          lm-math# NOT in scheme-medium
+          lualatex-math# NOT in scheme-medium
+          mathtools# NOT in scheme-medium
+          selnolig# NOT in scheme-medium
+          framed# NOT in scheme-medium  pandoc highlight shading
+          tcolorbox# NOT in scheme-medium  callout.lua
+          environ# tcolorbox dep  NOT in scheme-medium
+          trimspaces# tcolorbox dep  NOT in scheme-medium
+          needspace# tcolorbox dep  NOT in scheme-medium
+          mdframed# tcolorbox skins dep  NOT in scheme-medium
           ;
       };
       fontsConf = pkgs.makeFontsConf {
@@ -50,7 +57,7 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
-          # removed pkgs.pandoc-lua-filters \u2014 conflicts with local filters
+          # removed pkgs.pandoc-lua-filters  conflicts with local filters
         ];
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
