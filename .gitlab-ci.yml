@@ -1,12 +1,11 @@
 build-pdfs:
   rules:
     - changes:
-        - resume.md
-        - system-design.md
+        - markdown/**/*.md
+        - filters/**/*.lua
         - preamble.tex
         - flake.nix
         - Makefile
-        - filters/**/*.lua
         - templates/**/*
         - .gitlab-ci.yml
   image: nixos/nix:latest
@@ -17,23 +16,21 @@ build-pdfs:
     - nix-env -iA nixpkgs.cachix
     - cachix authtoken $CACHIX_AUTH_TOKEN
   script:
-    - nix build .#system-design-pdf --out-link result-system-design
-    - nix build .#resume-pdf        --out-link result-resume
-    - cachix push $CACHIX_CACHE result-system-design result-resume
+    - nix build .#all-pdfs --out-link result-pdfs
+    - cachix push $CACHIX_CACHE result-pdfs
   artifacts:
     paths:
-      - result-system-design/system-design.pdf
-      - result-resume/resume.pdf
+      - result-pdfs/*.pdf
     when: on_success
   after_script:
     - |
       if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
-        cp result-system-design/system-design.pdf system-design.pdf
-        cp result-resume/resume.pdf resume.pdf
+        mkdir -p output
+        cp result-pdfs/*.pdf output/
         git config user.name  "gitlab-ci-bot"
         git config user.email "gitlab-ci-bot@noreply.gitlab.com"
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
-        git add system-design.pdf resume.pdf
+        git add output/*.pdf
         git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
         git push origin main
       fi

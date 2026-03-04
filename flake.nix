@@ -7,7 +7,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       tex = pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-full# everything \u2014 no more missing .sty ever
+          scheme-full
           luaotfload
           lualatex-math
           selnolig
@@ -16,40 +16,43 @@
       fontsConf = pkgs.makeFontsConf {
         fontDirectories = [ pkgs.noto-fonts ];
       };
+
+      # build all markdown/*.md -> output/*.pdf in one derivation
+      allPdfs = pkgs.stdenv.mkDerivation {
+        name = "all-pdfs";
+        src = ./.;
+        buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts pkgs.gnumake ];
+        buildPhase = ''
+          export HOME=$(pwd)
+          export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
+          export FONTCONFIG_FILE=${fontsConf}
+          luaotfload-tool --update
+          make pdf
+        '';
+        installPhase = ''
+          mkdir -p $out
+          cp output/*.pdf $out/
+        '';
+      };
+
     in
     {
       packages.${system} = {
-
-        # nix build .#system-design-pdf
-        system-design-pdf = pkgs.stdenv.mkDerivation {
-          name = "system-design-pdf";
-          src = ./.;
-          buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
-          buildPhase = ''
-            export HOME=$(pwd)
-            export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
-            export FONTCONFIG_FILE=${fontsConf}
-            luaotfload-tool --update
-            make system-design.pdf
-          '';
-          installPhase = "install -D system-design.pdf $out/system-design.pdf";
-        };
-
-        # nix build .#resume-pdf
+        all-pdfs = allPdfs;
+        # convenience: nix build .#resume-pdf still works
         resume-pdf = pkgs.stdenv.mkDerivation {
           name = "resume-pdf";
           src = ./.;
-          buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts ];
+          buildInputs = [ pkgs.pandoc tex pkgs.noto-fonts pkgs.gnumake ];
           buildPhase = ''
             export HOME=$(pwd)
             export OSFONTDIR="${pkgs.noto-fonts}/share/fonts//"
             export FONTCONFIG_FILE=${fontsConf}
             luaotfload-tool --update
-            make resume.pdf
+            make output/resume.pdf
           '';
-          installPhase = "install -D resume.pdf $out/resume.pdf";
+          installPhase = "install -D output/resume.pdf $out/resume.pdf";
         };
-
       };
 
       # nix develop
@@ -62,14 +65,13 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
-          # removed pkgs.pandoc-lua-filters \u2014 conflicts with local filters
+          pkgs.gnumake
         ];
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
           echo "pandoc $(pandoc --version | head -1)"
-          echo "make       -> example.pdf"
+          echo "make       -> output/*.pdf + output/*.html"
           echo "make watch -> rebuild on change"
-          echo "make html  -> example.html"
         '';
       };
 
@@ -81,17 +83,8 @@
           export HOME=$(mktemp -d)
           export FONTCONFIG_FILE=${fontsConf}
           luaotfload-tool --update
-          pandoc system-design.md \
-            --lua-filter=filters/main.lua \
-            --pdf-engine=lualatex \
-            --standalone \
-            -V documentclass=article \
-            -V mainfont="Noto Serif" \
-            -V sansfont="Noto Sans" \
-            -V monofont="Noto Sans Mono" \
-            --highlight-style=zenburn \
-            -o system-design.pdf
-          echo "Built system-design.pdf"
+          make all
+          echo "Built all PDFs and HTMLs in output/"
         '');
       };
     };
