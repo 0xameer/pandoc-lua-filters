@@ -7,14 +7,11 @@ build-pdfs:
         - filters/**/*.lua
         - templates/**/*
         - .gitlab-ci.yml
-  cache:
-    key: nix-store-$CI_COMMIT_REF_SLUG
-    paths:
-      - /nix/store
-      - /nix/var/nix/db
   image: nixos/nix:latest
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
+    - echo "substituters = https://cache.nixos.org https://$CACHIX_CACHE.cachix.org" >> /etc/nix/nix.conf
+    - echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= $CACHIX_PUBLIC_KEY" >> /etc/nix/nix.conf
     # git-minimal is already in nixos/nix image, no need to install
   script:
     - nix build .#example-pdf --out-link result-example

@@ -7,24 +7,10 @@
       pkgs = nixpkgs.legacyPackages.${system};
       tex = pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-medium# covers geometry, hyperref, xcolor, booktabs, listings,
-          # fancyvrb, pgf, float, wrapfig, capt-of, soul, microtype,
-          # multirow, bookmark, upquote, footnotehyper, xurl and more
-          luatex
+          scheme-full# everything  no more missing .sty ever
           luaotfload
-          fontspec
-          tikz-cd# commutative diagrams \u2014 NOT in scheme-medium
-          unicode-math# NOT in scheme-medium
-          lm-math# NOT in scheme-medium
-          lualatex-math# NOT in scheme-medium
-          mathtools# NOT in scheme-medium
-          selnolig# NOT in scheme-medium
-          framed# NOT in scheme-medium \u2014 pandoc highlight shading
-          tcolorbox# NOT in scheme-medium \u2014 callout.lua
-          environ# tcolorbox dep \u2014 NOT in scheme-medium
-          trimspaces# tcolorbox dep \u2014 NOT in scheme-medium
-          needspace# tcolorbox dep \u2014 NOT in scheme-medium
-          mdframed# tcolorbox skins dep \u2014 NOT in scheme-medium
+          lualatex-math
+          selnolig
           ;
       };
       fontsConf = pkgs.makeFontsConf {
@@ -33,9 +19,6 @@
     in
     {
       # nix build .#example-pdf
-      /*
-        // suffix is a kpathsea/luaotfload convention meaning "this directory and all subdirectories recursively". Without it, luaotfload only scans the top-level directory and misses the actual font files which are nested under truetype/noto/ inside the share/fonts tree.
-      */
       packages.${system}.example-pdf = pkgs.stdenv.mkDerivation {
         name = "example-pdf";
         src = ./.;
@@ -60,7 +43,7 @@
           pkgs.entr
           pkgs.lua5_1
           pkgs.luajit
-          # removed pkgs.pandoc-lua-filters \u2014 conflicts with local filters
+          # removed pkgs.pandoc-lua-filters  conflicts with local filters
         ];
         shellHook = ''
           export FONTCONFIG_FILE=${fontsConf}
