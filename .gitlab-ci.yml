@@ -9,18 +9,24 @@ build-pdfs:
         - templates/**/*
         - .gitlab-ci.yml
   image: nixos/nix:latest
+  cache:
+    key: nix-$CI_COMMIT_REF_SLUG
+    paths:
+      - /root/.cache/nix
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "substituters = https://cache.nixos.org https://$CACHIX_CACHE.cachix.org" >> /etc/nix/nix.conf
     - echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= $CACHIX_PUBLIC_KEY" >> /etc/nix/nix.conf
-    - nix-env -iA nixpkgs.cachix
+    - nix-env -iA nixpkgs.cachix nixpkgs.pandoc
     - cachix authtoken $CACHIX_AUTH_TOKEN
   script:
     - nix build .#all-pdfs --out-link result-pdfs
+    - make html
     - cachix push $CACHIX_CACHE result-pdfs
   artifacts:
     paths:
       - result-pdfs/*.pdf
+      - output/*.html
     when: on_success
   after_script:
     - |
@@ -30,7 +36,7 @@ build-pdfs:
         git config user.name  "gitlab-ci-bot"
         git config user.email "gitlab-ci-bot@noreply.gitlab.com"
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
-        git add output/*.pdf
+        git add output/*.pdf output/*.html
         git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
         git push origin main
       fi

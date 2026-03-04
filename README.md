@@ -1,12 +1,15 @@
 # Lua filters and Pandoc
 
-[Binary Cache] re for my gitlab ci.
+## Binary cache
+
+```bash
+cachix use pandoc-lua-filters
+```
 
 
 # Notes
 
-GITLAB_TOKEN
-as a Project Access Token with write_repository. The built-in CI_JOB_TOKEN can only read,
+GITLAB_TOKEN as a Project Access Token with write_repository. The built-in CI_JOB_TOKEN can only read,
 not push back to the repo.
 
 ``` bash
