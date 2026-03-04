@@ -6,12 +6,6 @@ lang: en
 fontsize: 11pt
 geometry: margin=2.5cm
 colorlinks: true
-header-includes:
-  - \usepackage[skins,breakable]{tcolorbox}
-  - \usepackage{tikz}
-  - \usepackage{tikz-cd}
-  - \usepackage{lualatex-math}
-  - \usepackage{mathtools}
 ---
 # Introduction
 

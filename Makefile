@@ -11,7 +11,8 @@ FLAGS    := --pdf-engine=lualatex \
             -V mainfont="Noto Serif" \
             -V sansfont="Noto Sans" \
             -V monofont="Noto Sans Mono" \
-            --highlight-style=zenburn
+            --highlight-style=zenburn \
+            --include-in-header=preamble.tex
 SRCS     := example.md
 PDF_OUT  := example.pdf
 HTML_OUT := example.html

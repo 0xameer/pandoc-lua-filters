@@ -6,6 +6,7 @@ on:
       - 'resume.md'
       - 'example.md'
       - 'flake.nix'
+      - 'preamble.tex'
       - 'Makefile'
       - 'filters/**.lua'
       - 'templates/**'
