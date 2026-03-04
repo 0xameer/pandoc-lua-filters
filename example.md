@@ -25,7 +25,7 @@ kubectl apply -f k8s/ops-dashboard/
 ## Callout Boxes
 
 ::: {.callout type="note"}
-This is a **note**. Rendered as tcolorbox in LaTeX.
+Test **note**. Rendered as tcolorbox in LaTeX.
 :::
 
 ::: {.callout type="warning"}
