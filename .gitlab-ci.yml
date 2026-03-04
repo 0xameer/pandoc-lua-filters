@@ -2,6 +2,7 @@ build-pdfs:
   rules:
     - changes:
         - example.md
+        - preamble.tex
         - flake.nix
         - Makefile
         - filters/**/*.lua
@@ -12,16 +13,17 @@ build-pdfs:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
     - echo "substituters = https://cache.nixos.org https://$CACHIX_CACHE.cachix.org" >> /etc/nix/nix.conf
     - echo "trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= $CACHIX_PUBLIC_KEY" >> /etc/nix/nix.conf
-    # git-minimal is already in nixos/nix image, no need to install
+    - nix-env -iA nixpkgs.cachix        # install cachix before build so it can pull from cache too
+    - cachix authtoken $CACHIX_AUTH_TOKEN
   script:
     - nix build .#example-pdf --out-link result-example
+    - cachix push $CACHIX_CACHE result-example
   artifacts:
     paths:
       - result-example/example.pdf
-    when: on_success          # only upload artifact if build succeeded
+    when: on_success
   after_script:
     - |
-      # only commit-back if script succeeded AND we are on main
       if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
         cp result-example/example.pdf example.pdf
         git config user.name  "gitlab-ci-bot"
