@@ -34,7 +34,9 @@ In the process, I have written my own
         };
 ```
 - My use case of embeddable Lua scripting goes beyond LuaTex, I do it for Oxwm (my Wm) & LuaKit browser too.
-
+- I ll also drop notes on
+  - Convergence and cngurance of NixOs as a system design example.
+  - Nix sandbox and caching.
 # Filters
 
 ## Callout Boxes

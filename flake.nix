@@ -7,40 +7,16 @@
       pkgs = nixpkgs.legacyPackages.${system};
       tex = pkgs.texlive.combine {
         inherit (pkgs.texlive)
-          scheme-small
+          scheme-medium# covers all standard packages incl. latexextra collections
           luatex
           luaotfload
           fontspec
-          geometry
-          hyperref
-          xcolor
-          tcolorbox
-          pgf# includes TikZ \u2014 do NOT add tikz separately
           tikz-cd# commutative diagrams for category theory
-          environ
-          trimspaces
-          booktabs
           unicode-math
           lm-math
-          listings
-          fancyvrb
-          mathtools# math-format.lua
           lualatex-math# math-format.lua
-          framed# pandoc highlighting shaded environments
+          mathtools# math-format.lua
           selnolig# LuaLaTeX ligature suppression
-          microtype# pandoc default template
-          bookmark# hyperref bookmark support
-          upquote# verbatim straight quotes
-          footnotehyper# pandoc footnote handling
-          soul# strikethrough support
-          xurl# URL line breaking
-          float# figure placement [H]
-          multirow# table cells spanning rows
-          wrapfig# wrapped figures
-          rotating# sideways figures/tables
-          capt-of# captions outside floats
-          needspace# tcolorbox dependency
-          mdframed# framed environments
           ;
       };
       fontsConf = pkgs.makeFontsConf {

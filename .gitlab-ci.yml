@@ -7,6 +7,11 @@ build-pdfs:
         - filters/**/*.lua
         - templates/**/*
         - .gitlab-ci.yml
+  cache:
+    key: nix-store-$CI_COMMIT_REF_SLUG
+    paths:
+      - /nix/store
+      - /nix/var/nix/db
   image: nixos/nix:latest
   before_script:
     - echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
