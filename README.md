@@ -38,3 +38,9 @@ What Meta does:
 it processes the YAML front matter of your document. Filters use it to programmatically inject \usepackage{...} into the LaTeX preamble via header-includes. Without it, callout.lua can't load tcolorbox before the document body uses it.
 
 [Binary Cache]: https://app.cachix.org/cache/pandoc-lua-filters
+
+# Git CI Notes
+
+Keep CI files, flake, and content changes in separate commits, so when a build breaks, I  can `git bisect` or `revert`
+just the flake without losing content work.
+One rule: never mix a rename with a config change in the same commit.
