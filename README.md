@@ -24,8 +24,11 @@ constantly hitting missing packages from obscure CTAN packages, which you won't 
 Lua globals are shared across dofile calls. Every filter that defines Meta = function(m) ... end silently clobbers the previous one. This main.lua collects each filter's Meta into a table and installs one final chained handler that runs all of them in order.
 callout.lua injects tcolorbox, math-format.lua injects lualatex-math and mathtools, diagram.lua injects tikz  now all three will actually run.
 
-in main.lua
+In main.lua
 Meta = nil before each dofile ensures we detect exactly which files define a Meta handler
 Each one gets collected into meta_handlers
 One final Meta is installed that runs all of them in sequence
 All other handlers (Div, HorizontalRule, CodeBlock, Para) are globals and don't conflict \u2014 only Meta had the collision problem
+
+What Meta does:
+it processes the YAML front matter of your document. Filters use it to programmatically inject \usepackage{...} into the LaTeX preamble via header-includes. Without it, callout.lua can't load tcolorbox before the document body uses it.

@@ -39,7 +39,7 @@ In the process, I have written my own
   - Nix sandbox and caching.
 # Filters
 
-Notes in filters re in the README.
+Notes in filters re in the README!
 
 ## Callout Boxes
 
