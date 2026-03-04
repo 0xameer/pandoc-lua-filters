@@ -26,6 +26,10 @@ jobs:
             experimental-features = nix-command flakes
       - name: Build all PDFs
         run: nix build .#all-pdfs --out-link result-pdfs
+      - name: Install pandoc
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y pandoc
       - name: Build all HTMLs
         run: make html
       - name: Upload PDFs
