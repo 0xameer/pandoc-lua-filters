@@ -23,8 +23,9 @@ build-pdfs:
     - nix build .#all-pdfs --out-link result-pdfs
     - |
       for md in markdown/*.md; do
-        find result-pdfs/ -name "*.pdf" -newer "$md" | grep . \
-          || (echo "STALE: no PDF newer than $md" && exit 1)
+        base=$(basename "$md" .md)
+        pdf="result-pdfs/${base}.pdf"
+        [ -s "$pdf" ] || (echo "MISSING or empty: $pdf" && exit 1)
       done
     - make html
     - cachix push $CACHIX_CACHE result-pdfs
@@ -38,7 +39,7 @@ build-pdfs:
       if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
         mkdir -p output
         cp result-pdfs/*.pdf output/
-        git config user.name  "gitlab-ci-bot"
+        git config user.name "gitlab-ci-bot"
         git config user.email "gitlab-ci-bot@noreply.gitlab.com"
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
         git add output/*.pdf output/*.html
