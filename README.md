@@ -22,9 +22,18 @@ pandoc ${1%%.*}.org \
 
 scheme-full  ~4GB
 
-In CI that 4GB gets downloaded and unpacked every run unless you cache the nix store. For your use case scheme-medium is
-the sweet spot  it covers everything pandoc + LuaLaTeX needs. scheme-full would only save time if you were
-constantly hitting missing packages from obscure CTAN packages, which you won't be with standard pandoc output.
+In CI that 4GB gets downloaded and unpacked every run unless you cache the nix store.
+scheme-full would only save time as I was constantly hitting missing packages from obscure
+CTAN packages.
+
+
+# Reproducibuility with Nix
+
+Nix sets file timestamps to the Unix epoch (1970-01-01) or 1980, depending on the tool,
+to ensure build reproducibility.
+This practice, which often utilizes the [SOURCE_DATE_EPOCH] environment variable,
+ensures that identical inputs generate identical outputs, eliminating non-determinism caused by
+time-of-build timestamps.
 
 # Lua filters
 
@@ -47,3 +56,5 @@ it processes the YAML front matter of your document. Filters use it to programma
 Keep CI files, flake, and content changes in separate commits, so when a build breaks, I  can `git bisect` or `revert`
 just the flake without losing content work.
 One rule: never mix a rename with a config change in the same commit.
+
+[SOURCE_DATE_EPOCH]: https://github.com/NixOS/nixpkgs/issues/112595
