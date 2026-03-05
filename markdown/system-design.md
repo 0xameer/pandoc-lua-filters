@@ -20,7 +20,7 @@ nix run .#generate-keys
 kubectl apply -f k8s/ops-dashboard/
 ```
 
-# Reproducible systems, and Congruence
+# Reproducible systems, & Congruence
 
 This is verifiable with `nix build --rebuild`, which builds twice and compares.
 Deployment via `deploy-rs` or `nixos-rebuild` over SSH performs an atomic
