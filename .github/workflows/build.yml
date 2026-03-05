@@ -46,11 +46,13 @@ jobs:
         with:
           name: pdfs
           path: result-pdfs/*.pdf
+          overwrite: true
       - name: Upload HTMLs
         uses: actions/upload-artifact@v4
         with:
           name: htmls
           path: output/*.html
+          overwrite: true
       - name: Commit built PDFs to repo
         if: github.ref == 'refs/heads/main'
         run: |

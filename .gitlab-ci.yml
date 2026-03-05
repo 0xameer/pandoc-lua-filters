@@ -34,6 +34,7 @@ build-pdfs:
       - result-pdfs/*.pdf
       - output/*.html
     when: on_success
+
   after_script:
     - |
       if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
@@ -44,5 +45,5 @@ build-pdfs:
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
         git add output/*.pdf output/*.html
         git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
-        git push origin main
+        git push origin HEAD:main
       fi
