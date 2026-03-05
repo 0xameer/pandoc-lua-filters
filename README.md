@@ -1,6 +1,6 @@
 # Lua filters and Pandoc
 
-## Binary cache
+## [Binary cache]
 
 ```bash
 cachix use pandoc-lua-filters
@@ -37,6 +37,14 @@ time-of-build timestamps.
 
 # Lua filters
 
+Lua filters transform the document structure before output is written \u2014 they can add, remove,
+or rewrite content nodes (links, divs, headings, blocks) for any output format (HTML, PDF, both)
+
+markdown -> [pandoc parses] -> AST -> [lua filters transform AST] -> HTML/PDF
+
+they're more like pre-processors than stylesheets \u2014 they reshape the document tree,
+while CSS only paints the result.
+
 Lua globals are shared across dofile calls. Every filter that defines Meta = function(m) ... end silently clobbers the previous one. This main.lua collects each filter's Meta into a table and installs one final chained handler that runs all of them in order.
 callout.lua injects tcolorbox, math-format.lua injects lualatex-math and mathtools, diagram.lua injects tikz  now all three will actually run.
 
@@ -47,9 +55,19 @@ One final Meta is installed that runs all of them in sequence
 All other handlers (Div, HorizontalRule, CodeBlock, Para) are globals and don't conflict \u2014 only Meta had the collision problem
 
 What Meta does:
-it processes the YAML front matter of your document. Filters use it to programmatically inject \usepackage{...} into the LaTeX preamble via header-includes. Without it, callout.lua can't load tcolorbox before the document body uses it.
+it processes the YAML front matter of your document. Filters use it to programmatically inject \usepackage{...} into the
+LaTeX preamble via header-includes. Without it, callout.lua can't load tcolorbox before the document body uses it.
 
-[Binary Cache]: https://app.cachix.org/cache/pandoc-lua-filters
+# Contrast to Clay Css
+
+Clay is a Haskell EDSL \u2014 you write Haskell functions that generate CSS. It's called a preprocessor because your Haskell compiles down to plain .css at build time. Same idea as LESS or Sass but in Haskell instead. It only deals with styling.
+Lua filters transform the document AST \u2014 they run during pandoc conversion and can restructure content, add attributes, or emit different markup per format. They don't touch styling at all.
+So the pipeline with both would be:
+Clay (.hs) --> generates --> style.css
+                                |
+markdown --> pandoc + lua filters --> HTML <-- style.css linked in
+
+
 
 # Git CI Notes
 
@@ -58,3 +76,5 @@ just the flake without losing content work.
 One rule: never mix a rename with a config change in the same commit.
 
 [SOURCE_DATE_EPOCH]: https://github.com/NixOS/nixpkgs/issues/112595
+
+[Binary Cache]: https://app.cachix.org/cache/pandoc-lua-filters
