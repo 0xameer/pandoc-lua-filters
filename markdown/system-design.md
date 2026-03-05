@@ -8,18 +8,6 @@ geometry: margin=2.5cm
 colorlinks: true
 ---
 
-# NixOS and the Congruence Problem
-
-This document demonstrates **pandoc** with custom Lua filters compiled to PDF
-via **LuaLaTeX**, using infrastructure notes as the content substrate.
-
-Inline code: `kubectl get nodes` and a block:
-
-```bash
-nix run .#generate-keys
-kubectl apply -f k8s/ops-dashboard/
-```
-
 # Reproducible systems, and Congruence
 
 This is verifiable with `nix build --rebuild`, which builds twice and compares.
