@@ -21,17 +21,18 @@ build-pdfs:
     - cachix authtoken $CACHIX_AUTH_TOKEN
   script:
     - nix build .#all-pdfs --out-link result-pdfs
+    - cp -rL result-pdfs result-pdfs-copy
     - |
       for md in markdown/*.md; do
         base=$(basename "$md" .md)
-        pdf="result-pdfs/${base}.pdf"
+        pdf="result-pdfs-copy/${base}.pdf"
         [ -s "$pdf" ] || (echo "MISSING or empty: $pdf" && exit 1)
       done
     - make html
     - cachix push $CACHIX_CACHE result-pdfs
   artifacts:
     paths:
-      - result-pdfs/*.pdf
+      - result-pdfs-copy/*.pdf
       - output/*.html
     when: on_success
 
@@ -39,7 +40,7 @@ build-pdfs:
     - |
       if [ "$CI_JOB_STATUS" = "success" ] && [ "$CI_COMMIT_BRANCH" = "main" ]; then
         mkdir -p output
-        cp result-pdfs/*.pdf output/
+        cp result-pdfs-copy/*.pdf output/
         git config user.name "gitlab-ci-bot"
         git config user.email "gitlab-ci-bot@noreply.gitlab.com"
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
