@@ -23,18 +23,21 @@ managing live infra and sandboxed build reproducibility with functional programm
 ### Languages & Tools
 
 - **Functional Programming**: Haskell, Rust.
-- **Infrastructure**: Kubernetes, Terraform, S3, Prometheus, Grafana.
-- **Containers**: WebAssembly, Podman, K8S, K3S pods and sandboxing with Nix.
-- **Frontend**: CSS (Clay), Pandoc.
-- **Scripting**: Lua, Emacs Lisp, Bash, Python, Yaml.
-- **Network**: Virtual Distributed Ethernet, Linux, Homelab Mesh, Intel and open hardware.
-- **DevOps**: GitLab CI, Secret Provisioning, Community code.
+- **Infrastructure**: Terraform, S3, Prometheus, Grafana.
+- **Containers**: Kubernetes and Sandboxes.
+- **Frontend**: CSS (Clay), Lua.
+- **Server Side & Automation** WASMEDGE, Rust.
+- **Database** GraphQL, PostgresQL.
+- **Scripting**: Emacs Lisp, Bash, Python, Yaml.
+- **Network**: Virtual Distributed Ethernet, Linux, Homelab, Intel and open hardware.
+- **DevOps**: GitLab CI, Secret Provisioning, GCE cloud.
 
 ### FOSS & Open Source
 
 ::: {.callout type="tip"}
-A microservice written in rust for a wasm container, later written as a nixos
-module for equivalent systemd service.
+A microservice in rust for a wasmedge container runtime.
+A cli tool to automate sourcehut graphql API queries.
+Some lua filters modify the intermediate AST of documents during conversion.
 :::
 
 ---
@@ -44,7 +47,7 @@ module for equivalent systemd service.
 ### 2024--25 | Freelance Trainer --- Data & Cloud Infrastructure, Hyderabad.
 
 ::: {.callout type="tip"}
-Trained engineers in data lake architecture --- Medallion and Data Vault patterns
+I trained engineers in data lake architecture --- Medallion and Data Vault patterns
 for durable, auditable foundations --- cloud-native Kubernetes, NixOS reproducible
 deployments, and hybrid models balancing cost and latency.
 :::
