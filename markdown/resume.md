@@ -27,7 +27,8 @@ managing live infra and sandboxed build reproducibility with functional programm
 - **Containers**: Kubernetes and Sandboxes.
 - **Frontend**: CSS (Clay), Lua.
 - **Server Side & Automation** WASMEDGE, Rust.
-- **Database** GraphQL, PostgresQL.
+- **Database** sqlite, PostgresQL.
+-- **Query language** GraphQL, Datalog, SQL.
 - **Scripting**: Emacs Lisp, Bash, Python, Yaml.
 - **Network**: Virtual Distributed Ethernet, Linux, Homelab, Intel and open hardware.
 - **DevOps**: GitLab CI, Secret Provisioning, GCE cloud.
@@ -37,7 +38,7 @@ managing live infra and sandboxed build reproducibility with functional programm
 ::: {.callout type="tip"}
 A microservice in rust for a wasmedge container runtime.
 A cli tool to automate sourcehut graphql API queries.
-Some lua filters modify the intermediate AST of documents during conversion.
+Some lua filters to modify the intermediate AST of documents during conversion.
 :::
 
 ---

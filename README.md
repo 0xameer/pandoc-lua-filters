@@ -1,3 +1,7 @@
+# README
+
+This project is an open-source, non-commercial project licensed under the MIT License
+
 # Lua filters and Pandoc
 
 ## [Binary cache]
