@@ -28,6 +28,8 @@ I commit to [git forges] and write on my [blog], [microblog].
 
 ## Core Competencies
 
+::: {.callout type="note"}
+
 **Infrastructure as Code**
 : Terraform/Pulumi, GitLab CI/CD, declarative VM provisioning, system service design.
 
@@ -49,24 +51,25 @@ network meshes , Cloudflare Workers.
 **API and Service Design**
 : Protocol implementation, CRUD and REST web-hooks.
 
+:::
+
 ---
 
 ## Selected Projects
 
-### Self-Hosted Blog Infrastructure (2026)
+::: {.callout type="note"}
 
-For a small scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner compute cost or CDN egress fees and reduced network costs.
+*Self-Hosted Blog Infrastructure (2026)* : For a small scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner compute cost or CDN egress fees and reduced network costs.
 
-### NixOS Kubernetes Cluster (2025--26)
-
-A production grade n-node QEMU VM [cluster], with a reproducible cluster state
+*NixOS Kubernetes Cluster (2025--26)*: A production grade n-node QEMU VM [cluster], with a reproducible cluster state
 
 For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on successful pipeline
 events. Which are exposed via Cloudfare Tunnel.
 
-### Cardano Proposal (2023--24)
-Proposed a Haskell EDSL  network-namespace process isolation for Cardano nodes to eliminate port conflicts and improve data integrity.
+*Cardano Proposal (2023--24)*: I proposed a Haskell EDSL  network-namespace process isolation for Cardano nodes to eliminate port conflicts and improve data integrity.
 Funded in Catalyst Fund-11 via community vote on Ideascale. Partnered with D.A.O. Konma (Chennai) for the pitch.
+
+:::
 
 ## Experience
 
@@ -126,7 +129,6 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 Primary: Hindi | Secondary: English
 
-## References
 
 [proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
 
