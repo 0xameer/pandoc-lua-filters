@@ -113,12 +113,10 @@ policy research and analysis).
 Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 :::
 
----
-
 ## Open Source
 
--  A [serverless API] for a virtual Tailscale Microservice service to post comments on my blog, deployed on Hasura [Turso].
- So that, anyone  with a valid GPG key or [indiauth] portal can comment on my blog post even from the machines which are
+-  A [serverless API] for a virtual Tailscale microservice , deployed on the [cluster] to post comments on my blog, and comment data stored with Hasura Turso Connector.
+ So that, anyone  with a valid GPG key or openID can comment on my blog post even from the machines which are
  not my Tailscale peer.
 
  - A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
@@ -131,6 +129,8 @@ Primary: Hindi | Secondary: English
 ## References
 
 [proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
+
+[cluster]: https://gitlab.com/xameer/nixos-gitlab-kube-ci/
 
 [serverless API]: https://gitlab.com/xameer/rs-comment-api
 
