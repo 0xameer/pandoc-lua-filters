@@ -26,10 +26,6 @@ Available for remote senior and staff engineering roles.
 
 I commit to [git forges] and write on my [blog], [microblog].
 
-:::
-
----
-
 ## Core Competencies
 
 **Infrastructure as Code**
@@ -43,16 +39,15 @@ I commit to [git forges] and write on my [blog], [microblog].
 network meshes , Cloudflare Workers.
 
 **Binary Caching and CI Optimization**
-: Cachix, Attic (self-hosted, R2-backed), FastCDC chunk tuning, GitLab runner
-  configuration (shell and Docker executors), 80% CI time reduction through cache
-  layer design.
+: Cachix, Attic (R2-backed), FastCDC chunk tuning,
+~ 80% CI time reduction through cache layer design.
 
 **Storage and Data**
-: MinIO (S3-compatible self-hosted), Restic (encrypted offsite backup), Longhorn
-  (Kubernetes PVC), Turso/libSQL (hosted SQLite), etcd, OpenEBS, AWS CSI.
+: MinIO (S3-compatible), Restic (offsite backup), Longhorn
+  (K8S PVC), Turso/libSQL (SQLite), etcd, OpenEBS, AWS CSI.
 
 **API and Service Design**
-: Protocol implementation, CRUD and REST web-hooks,.
+: Protocol implementation, CRUD and REST web-hooks.
 
 ---
 
@@ -64,8 +59,7 @@ For a small scale DevOps, with Rust and Haskell tool-chain, but without the clou
 
 ### NixOS Kubernetes Cluster (2025--26)
 
-A production grade n-node QEMU VM cluster.
-Fully reproducible: Entire cluster state defined in one flake.
+A production grade n-node QEMU VM [cluster], with a reproducible cluster state
 
 For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on successful pipeline
 events. Which are exposed via Cloudfare Tunnel.
@@ -73,8 +67,6 @@ events. Which are exposed via Cloudfare Tunnel.
 ### Cardano Proposal (2023--24)
 Proposed a Haskell EDSL  network-namespace process isolation for Cardano nodes to eliminate port conflicts and improve data integrity.
 Funded in Catalyst Fund-11 via community vote on Ideascale. Partnered with D.A.O. Konma (Chennai) for the pitch.
-
----
 
 ## Experience
 
@@ -131,8 +123,6 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
  - A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
    multiple formats.
-
----
 
 ## Communication
 
