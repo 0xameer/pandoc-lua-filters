@@ -11,16 +11,16 @@ colorlinks: true
 # Sameer Gupta
 
 ::: {.contact-footer}
-xameer@disroot.org | +91 799 311 0170 | Ananthapur, India.
+> <xameer@zohomail.in> \u2022 +91 799 311 0170
+> Ananthapur, India.
 :::
 
 ## Summary
 
 ::: {.callout type="note"}
-Infrastructure architect and functional programmer with 15 years of applied experience across systems design, data
-engineering, and API development.
-I specialise in reproducible infrastructure as code, service design, DSL and language inter-ops, binary cache optimisation, and zero-trust networking.
-Track record of reducing cloud compute and hosting costs through self-hosted, declarative infrastructure.
+> Infrastructure architect and functional programmer with 15 years of applied experience across systems design, data engineering, and API development.
+> I specialise in reproducible infrastructure as code, service design, DSL and language inter-ops, binary cache optimisation, and zero-trust networking.
+> Track record of reducing cloud compute and hosting costs through self-hosted, declarative infrastructure.
 Available for remote senior and staff engineering roles.
 :::
 
@@ -59,63 +59,72 @@ network meshes, Cloudflare Workers.
 
 ::: {.callout type="note"}
 
-*Self-Hosted Blog Infrastructure (2026)*: For a small-scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner compute cost or CDN egress fees and reduced network costs.
+:   *Self-Hosted Blog Infrastructure (2026)*: For a small-scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner compute cost or CDN egress fees and reduced network costs.
 
-*NixOS Kubernetes Cluster (2025--26)*: A production-grade n-node QEMU VM [cluster], with a reproducible cluster state
+:   *NixOS Kubernetes Cluster (2025--26)*: A production-grade n-node QEMU VM [cluster], with a reproducible cluster state
 
-For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on successful pipeline
-events. Which are exposed via Cloudflare Tunnel.
+    For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on successful pipeline events, Which are exposed via Cloudflare Tunnel.
 
-*Cardano Proposal (2023--24)*: Designed and wrote the winning proposal
-for an EDSL targeting Plutus smart contract development on open-source hardware
-addressing scalability bottlenecks and hardware compatibility constraints that
-limited Cardano sidechain deployment. Funded via community vote on Ideascale;
-partnered with D.A.O. Konma (Chennai) for pitch.
+:   *Cardano Proposal (2023--24)*: Designed and wrote the winning proposal
+    for an EDSL targeting Plutus smart contract development on open-source hardware
+    addressing scalability bottlenecks and hardware compatibility constraints that,
+    limited Cardano sidechain deployment. Funded via community vote on Ideascale; partnered with D.A.O. Konma (Chennai) for pitch.
 
 :::
 
 ## Experience
 
-### 2024--25 | Freelance Trainer, Data and Cloud Infrastructure -- Hyderabad
+### 2024--25
 
-Trained engineers in data lake architecture: Medallion and Data Vault patterns,
-cloud-native Kubernetes, and hybrid cost/latency models. Covered Terraform IaC,
-Kubernetes resource management, GitOps, and disposable environment design.
+:   **Freelance Trainer, Data and Cloud Infrastructure** -- Hyderabad
 
-### 2023--24 | Senior Haskell Developer -- Haskledger
+    Trained engineers in data lake architecture: Medallion and Data Vault patterns, cloud-native Kubernetes, and hybrid cost,latency models. Covered Terraform IaC, Kubernetes resource management, GitOps, and disposable environment design.
 
-Developed a typed AST in Haskell, capturing smart-contract constructs, their low-level
-constraints, with a denotational interpreter mapping DSL expressions to Plutus
-Core via operational rewrite rules. Used GADTs and phantom types to make
-resource-exceeding contracts are unrepresentable at compile time, and a deep
-embedding layer for optimisation passes batched state transitions, compact
-validator scripts  that reduce sidechain execution costs before evaluation.
+### 2023--24
 
-### 2019--23 | Freelance Network Programmer
+:   **Senior Haskell Developer** -- Haskledger
 
-Prototyped interconnection services for crypto mining data centres. Full cycle:
-value proposition, feasibility, simulation, prototype, pitch.
-I developed Linux services with Podman, cloud, and serverless on tunnels.
+    Developed a typed AST in Haskell, capturing smart-contract constructs, their low-level constraints, with a
+    denotational interpreter mapping DSL expressions to Plutus
+    Core via operational rewrite rules. Used GADTs and phantom types to make
+    resource-exceeding contracts are not represented at compile time, and a deep
+    embedding layer for optimisation passes batched state transitions and compact
+    validator scripts, that reduce sidechain execution costs before evaluation.
 
-### 2016--19 | Freelance Web Developer
+### 2019--23
 
-Frontend features and UI fixes for seed-funded startups. Web administration, development, and App firewalls.
+:   **Freelance Network Programmer**
 
-### 2015--16 | Data Science Lead -- Examify, Mumbai
+    Prototyped interconnection services for crypto mining data centres. Full cycle:
+    value proposition, feasibility, simulation, prototype, pitch.
+    I developed Linux services with Podman, cloud, and serverless on tunnels.
 
-NLP pattern recognition, ML with CUDA. Reported to CTO and CEO.
+### 2016--19
 
-### 2010--12 | Faculty, Physics
+:   **Freelance Web Developer**
 
-Preparatory physics for IIT-JEE at commercial institutes.
+    Frontend features and UI fixes for seed-funded startups. Web administration, development, and App firewalls.
+
+### 2015--16
+
+:   **Data Science Lead** -- Examify, Mumbai
+
+    NLP pattern recognition, ML with CUDA. Reported to CTO and CEO.
+
+### 2010--12
+
+:   **Faculty, Physics** -- Misc.
+
+    Preparatory physics for IIT-JEE at incorporated commercial institutes.
 
 ---
 
 ## Education
 
-**2006--2010** | B.Tech, M.E.M.S. -- Indian Institute of Technology Bombay.
-I was enrolled on the 4-year course.
-Applied Physics, Mathematics, CS-101. Winter intern at I.I.M. Bangalore (traffic
+**2006--2010**
+:   **B.Tech, M.E.M.S.** -- Indian Institute of Technology Bombay.
+    I was enrolled on the 4-year course.
+    Applied Physics, Mathematics, CS-101. Winter intern at I.I.M. Bangalore (traffic
 policy research and analysis).
 
 ::: {.callout type="tip"}
@@ -126,20 +135,20 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ::: {.callout type="tip"}
 
--  A [serverless API] for a virtual Tailscale microservice, deployed on the [cluster] and natively as a systemd service to post comments on my blog, and
+:   A [serverless API] for a virtual Tailscale microservice, deployed on the [cluster] and natively as a systemd service to post comments on my blog, and
  comment data stored with Turso libsql Connector.
  So that anyone  with a valid GPG key or OpenID can comment on my blog post, even from the machines that are
  not my Tailscale peer.
 
- - A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
+ :   A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
    multiple formats.
-
+:   A [cli-util] to query the SourceHut GraphQL API.
 :::
 
 ## Communication
 
-Primary: Hindi \
-Secondary: English
+    Primary: Hindi \
+    Secondary: English
 
 
 [proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
@@ -156,3 +165,5 @@ Secondary: English
 [microblog]: https://mathstodon.xyz/@xameer
 
 [git forges]: https://gitlab.com/xameer
+
+[cli-util]: https://git.sr.ht/~carnotweat/srht
