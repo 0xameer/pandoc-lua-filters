@@ -29,26 +29,30 @@ I commit to [git forges] and write on my [blog] and [microblog].
 
 ::: {.callout type="warning"}
 
-**Infrastructure as Code**
-: Terraform/Pulumi, GitLab CI/CD, declarative VM provisioning, system service design.
+: **Infrastructure as Code**
 
-**Programming Languages & Semantics**
-: NixPkgs, Haskell, Rust, Lua, Bash, Python, Wasm, Emacs Lisp.
+  Terraform/Pulumi, GitLab CI/CD, declarative VM provisioning, system service design.
 
-**Distributed Systems**
-: Kubernetes (bare-metal, CRI-O, etcd, secretbox), Apps and services for  zero-trust
-network meshes, Cloudflare Workers.
+: **Programming Languages & Semantics**
 
-**Binary Caching and CI Optimisation**
-: Cachix, Attic (R2-backed), FastCDC chunk tuning,
-~ 80% CI time reduction through cache layer design.
+    NixPkgs, Haskell, Rust, Lua, Bash, Python, Wasm, Emacs Lisp.
 
-**Storage and Data**
-: MinIO (S3-compatible), Restic (offsite backup), Longhorn
+: **Distributed Systems**
+  Kubernetes (bare-metal, CRI-O, etcd, secretbox), Apps and services for  zero-trust
+  network meshes, Cloudflare Workers.
+
+: **Binary Caching and CI Optimisation**
+
+  Cachix, Attic (R2-backed), FastCDC chunk tuning,
+  ~ 80% CI time reduction through cache layer design.
+
+: **Storage and Data**
+  MinIO (S3-compatible), Restic (offsite backup), Longhorn
   (K8S PVC), Turso/libSQL (SQLite), etcd, OpenEBS, AWS CSI.
 
-**API and Service Design**
-: Protocol implementation, CRUD and REST web-hooks.
+: **API and Service Design**
+
+    Protocol implementation, CRUD and REST web-hooks.
 
 :::
 
@@ -58,16 +62,24 @@ network meshes, Cloudflare Workers.
 
 ::: {.callout type="note"}
 
-:  *Self-Hosted Blog Infrastructure (2026)*: For a small-scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner compute cost or CDN egress fees and reduced network costs.
+-  **Self-Hosted Blog Infrastructure (2026)**:
 
-:  *NixOS Kubernetes Cluster (2025--26)*: A production-grade n-node QEMU VM [cluster], with a reproducible cluster state
+    For a small-scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner
+    compute cost or CDN egress fees and reduced network costs.
 
-    For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on successful pipeline events, Which are exposed via Cloudflare Tunnel.
+-  **NixOS Kubernetes Cluster (2025--26)**:
 
-:  *Cardano Proposal (2023--24)*: Designed and wrote the winning proposal
-    for an EDSL targeting Plutus smart contract development on open-source hardware
-    addressing scalability bottlenecks and hardware compatibility constraints that,
-    limited Cardano sidechain deployment. Funded via community vote on Ideascale; partnered with D.A.O. Konma (Chennai) for pitch.
+    A production-grade n-node QEMU VM [cluster], with a reproducible cluster state
+
+    For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on
+    successful pipeline events, Which are exposed via Cloudflare Tunnel.
+
+-   **Cardano Proposal (2023--24)**:
+   Designed and wrote the winning proposal
+   for an EDSL targeting Plutus smart contract development on open-source hardware
+   addressing scalability bottlenecks and hardware compatibility constraints that,
+   limited Cardano sidechain deployment. Funded via community vote on Ideascale;
+   partnered with D.A.O. Konma (Chennai) for pitch.
 
 :::
 
@@ -75,13 +87,13 @@ network meshes, Cloudflare Workers.
 
 ### 2024--25
 
-:  **Freelance Trainer, Data and Cloud Infrastructure** -- Hyderabad
+-  **Freelance Trainer, Data and Cloud Infrastructure** -- Hyderabad
 
     Trained engineers in data lake architecture: Medallion and Data Vault patterns, cloud-native Kubernetes, and hybrid cost,latency models. Covered Terraform IaC, Kubernetes resource management, GitOps, and disposable environment design.
 
 ### 2023--24
 
-:  **Senior Haskell Developer** -- Haskledger
+-  **Senior Haskell Developer** -- Haskledger
 
     Developed a typed AST in Haskell, capturing smart-contract constructs, their low-level constraints, with a
     denotational interpreter mapping DSL expressions to Plutus
@@ -92,7 +104,7 @@ network meshes, Cloudflare Workers.
 
 ### 2019--23
 
-:  **Freelance Network Programmer**
+-  **Freelance Network Programmer**
 
     Prototyped interconnection services for crypto mining data centres. Full cycle:
     value proposition, feasibility, simulation, prototype, pitch.
@@ -100,19 +112,20 @@ network meshes, Cloudflare Workers.
 
 ### 2016--19
 
-:  **Freelance Web Developer**
+-  **Freelance Web Developer**
 
-    Frontend features and UI fixes for seed-funded startups. Web administration, development, and App firewalls.
+    Frontend features and UI fixes for seed-funded startups. Web administration, development,
+    and App firewalls.
 
 ### 2015--16
 
-:  **Data Science Lead** -- Examify, Mumbai
+-  **Data Science Lead** -- Examify, Mumbai
 
     NLP pattern recognition, ML with CUDA. Reported to CTO and CEO.
 
 ### 2010--12
 
-:  **Faculty, Physics** -- Misc.
+-  **Faculty, Physics** -- Misc.
 
     Preparatory physics for IIT-JEE at incorporated commercial institutes.
 
@@ -134,14 +147,15 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ::: {.callout type="tip"}
 
-:  A [serverless API] for a virtual Tailscale microservice, deployed on the [cluster] and natively as a systemd service to post comments on my blog, and
+-  A [serverless API] for a virtual Tailscale microservice, deployed on the [cluster] and natively as a systemd service to post comments on my blog, and
  comment data stored with Turso libsql Connector.
  So that anyone  with a valid GPG key or OpenID can comment on my blog post, even from the machines that are
  not my Tailscale peer.
 
- :  A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
+ -  A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
    multiple formats.
-:  A [cli-util] to query the SourceHut GraphQL API.
+
+-  A [cli-util] to query the SourceHut GraphQL API.
 :::
 
 ## Communication
