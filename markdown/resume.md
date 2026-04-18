@@ -77,6 +77,7 @@ I commit to [git forges] and write on my [blog] and [microblog].
     successful pipeline events, Which are exposed via Cloudflare Tunnel.
 
 -   **Cardano Proposal (2023--24)**:
+
    Designed and wrote the winning proposal
    for an EDSL targeting Plutus smart contract development on open-source hardware
    addressing scalability bottlenecks and hardware compatibility constraints that,
