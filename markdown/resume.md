@@ -29,28 +29,30 @@ I commit to [git forges] and write on my [blog] and [microblog].
 
 ::: {.callout type="warning"}
 
-: **Infrastructure as Code**
+- **Infrastructure as Code**
 
   Terraform/Pulumi, GitLab CI/CD, declarative VM provisioning, system service design.
 
-: **Programming Languages & Semantics**
+- **Programming Languages & Semantics**
 
     NixPkgs, Haskell, Rust, Lua, Bash, Python, Wasm, Emacs Lisp.
 
-: **Distributed Systems**
-  Kubernetes (bare-metal, CRI-O, etcd, secretbox), Apps and services for  zero-trust
-  network meshes, Cloudflare Workers.
+- **Distributed Systems**
 
-: **Binary Caching and CI Optimisation**
+    Kubernetes (bare-metal, CRI-O, etcd, secretbox), Apps and services for  zero-trust
+    network meshes, Cloudflare Workers.
+
+- **Binary Caching and CI Optimisation**
 
   Cachix, Attic (R2-backed), FastCDC chunk tuning,
   ~ 80% CI time reduction through cache layer design.
 
-: **Storage and Data**
-  MinIO (S3-compatible), Restic (offsite backup), Longhorn
-  (K8S PVC), Turso/libSQL (SQLite), etcd, OpenEBS, AWS CSI.
+- **Storage and Data**
 
-: **API and Service Design**
+    MinIO (S3-compatible), Restic (offsite backup), Longhorn
+    (K8S PVC), Turso/libSQL (SQLite), etcd, OpenEBS, AWS CSI.
+
+- **API and Service Design**
 
     Protocol implementation, CRUD and REST web-hooks.
 
@@ -117,6 +119,8 @@ I commit to [git forges] and write on my [blog] and [microblog].
     Frontend features and UI fixes for seed-funded startups. Web administration, development,
     and App firewalls.
 
+---
+
 ### 2015--16
 
 -  **Data Science Lead** -- Examify, Mumbai
@@ -129,7 +133,6 @@ I commit to [git forges] and write on my [blog] and [microblog].
 
     Preparatory physics for IIT-JEE at incorporated commercial institutes.
 
----
 
 ## Education
 
