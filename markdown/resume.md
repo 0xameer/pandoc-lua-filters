@@ -11,7 +11,7 @@ colorlinks: true
 # Sameer Gupta
 
 ::: {.contact-footer}
-> <xameer@zohomail.in> | +91 799 311 0170 | Ananthapur, India.
+> ` <xameer@zohomail.in>   +91 799 311 0170  Ananthapur, India. `
 :::
 
 ## Summary
@@ -23,7 +23,7 @@ colorlinks: true
 Available for remote senior and staff engineering roles.
 :::
 
-I commit to [git forges] and write on my [blog] and [microblog].
+I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 ## Core Competencies
 
