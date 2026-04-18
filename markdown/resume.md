@@ -11,7 +11,7 @@ colorlinks: true
 # Sameer Gupta
 
 ::: {.contact-footer}
-> ` <xameer@zohomail.in>   +91 799 311 0170  Ananthapur, India. `
+>  <xameer@zohomail.in> • +91 799 311 0170  • Ananthapur, India.
 :::
 
 ## Summary
@@ -164,7 +164,8 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ## Communication
 
-    Primary: Hindi \
+    Primary: Hindi
+
     Secondary: English
 
 
