@@ -11,7 +11,7 @@ colorlinks: true
 # Sameer Gupta
 
 ::: {.contact-footer}
-> 📧 <xameer@zohomail.in> • ☎ +91 799 311 0170  •📮 Ananthapur, India.
+>  <xameer@zohomail.in> •  +91 799 311 0170  • Ananthapur, India.
 :::
 
 ## Summary
@@ -25,7 +25,7 @@ Available for remote senior and staff engineering roles.
 
 I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
-## 🧰 Core Competencies
+##  Core Competencies
 
 ::: {.callout type="warning"}
 
@@ -176,7 +176,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 [serverless API]: https://gitlab.com/xameer/rs-comment-api
 
-[CLI tool]: https://gitlab.com/xameer/opml-crawler
+[CLI tool]: https://gitlab.com/xameer/jobpipe
 
 [blog]: https://xameer.gitlab.io
 
