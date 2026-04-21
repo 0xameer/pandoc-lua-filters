@@ -11,7 +11,7 @@ colorlinks: true
 # Sameer Gupta
 
 ::: {.contact-footer}
->  <xameer@zohomail.in> • +91 799 311 0170  • Ananthapur, India.
+> 📧 <xameer@zohomail.in> • ☎ +91 799 311 0170  •📮 Ananthapur, India.
 :::
 
 ## Summary
@@ -25,7 +25,7 @@ Available for remote senior and staff engineering roles.
 
 I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
-## Core Competencies
+## 🧰 Core Competencies
 
 ::: {.callout type="warning"}
 
@@ -69,14 +69,14 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
     For a small-scale DevOps, with Rust and Haskell tool-chain, but without the cloud or CI runner
     compute cost or CDN egress fees and reduced network costs.
 
--  **NixOS Kubernetes Cluster (2025--26)**:
+- 🖧 **NixOS Kubernetes Cluster (2025--26)**:
 
     A production-grade n-node QEMU VM [cluster], with a reproducible cluster state
 
     For Apps, I used GitLab webhook receivers triggering Kubernetes rolling restarts on
     successful pipeline events, Which are exposed via Cloudflare Tunnel.
 
--   **Cardano Proposal (2023--24)**:
+-  🖹 **Cardano Proposal (2023--24)**:
 
    Designed and wrote the winning proposal
    for an EDSL targeting Plutus smart contract development on open-source hardware
