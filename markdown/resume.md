@@ -18,7 +18,7 @@ colorlinks: true
 
 ::: {.callout type="note"}
 > Infrastructure architect and functional programmer with 15 years of applied experience across systems design, data engineering, and API development.
-> I specialise in reproducible infrastructure as code, service design, DSL and language inter-ops, binary cache optimisation, and zero-trust networking.
+> I specialise in reproducible infrastructure as code, service design, DSL, binary cache optimisation, and zero-trust networking.
 > Track record of reducing cloud compute and hosting costs through self-hosted, declarative infrastructure.
 Available for remote senior and staff engineering roles.
 :::
@@ -137,7 +137,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 ## Education
 
-**2006--2010**
+**2006--2011**
 :  **B.Tech, M.E.M.S.** -- Indian Institute of Technology Bombay.
     I was enrolled on the 4-year course.
     Applied Physics, Mathematics, CS-101. Winter intern at I.I.M. Bangalore (traffic
@@ -151,15 +151,11 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ::: {.callout type="tip"}
 
--  A [serverless API] for a virtual Tailscale microservice, deployed on the [cluster] and natively as a systemd service to post comments on my blog, and
- comment data stored with Turso libsql Connector.
- So that anyone  with a valid GPG key or OpenID can comment on my blog post, even from the machines that are
- not my Tailscale peer.
+-  A [serverless API] for a virtual Tailscale microservice.
 
- -  A fast [CLI tool] to crawl RSS/Atom job feeds from an OPML file, deduplicate entries, and output recent jobs in
-   multiple formats.
+ - A fast [CLI aggregator] for job feeds and APIs to extract feature sets and query data, with a composable query DSL for filtering and ranking.
 
--  A [cli-util] to query the SourceHut GraphQL API.
+-  A [CLI] tool to query the SourceHut GraphQL API.
 :::
 
 ## Communication
@@ -176,7 +172,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 [serverless API]: https://gitlab.com/xameer/rs-comment-api
 
-[CLI tool]: https://gitlab.com/xameer/jobpipe
+[CLI aggregator]: https://gitlab.com/xameer/jobpipe
 
 [blog]: https://xameer.gitlab.io
 
@@ -184,4 +180,4 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 [git forges]: https://gitlab.com/xameer
 
-[cli-util]: https://git.sr.ht/~carnotweat/srht
+[CLI]: https://git.sr.ht/~carnotweat/srht
