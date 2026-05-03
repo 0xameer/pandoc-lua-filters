@@ -153,7 +153,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 -  A [serverless API] for a virtual Tailscale microservice, exposed via Tailscale Funnel.
 
- - A fast [CLI aggregator] for job feeds and APIs to crawl meta-data, and filter results via a declarative DSL or keyword query before printing ranked jobs.
+ - A fast [CLI aggregator] tool for job feeds and APIs, exposing a dynamically typed, declarative DSL for querying and filtering structured job data.
 
 -  A [CLI] tool to query the SourceHut GraphQL API.
 :::
