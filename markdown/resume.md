@@ -18,7 +18,7 @@ colorlinks: true
 
 ::: {.callout type="note"}
 > Infrastructure architect and functional programmer with 15 years of applied experience across systems design, data engineering, and API development.
-> I specialise in reproducible infrastructure as code, service design, DSL, binary cache optimisation, and zero-trust networking.
+> I specialise in infrastructure as code, service design, DSL, binary caching, cloud storage and zero-trust networking.
 > Track record of reducing cloud compute and hosting costs through self-hosted, declarative infrastructure.
 Available for remote senior and staff engineering roles.
 :::
@@ -54,7 +54,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 - **API and Service Design**
 
-    Protocol implementation, CRUD and REST web-hooks.
+    Protocol implementation, CRUD and, REST webhooks.
 
 :::
 
@@ -78,7 +78,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 -  🖹 **Cardano Proposal (2023--24)**:
 
-   Designed and wrote the winning proposal
+   Designed and wrote the [winning proposal]
    for an EDSL targeting Plutus smart contract development on open-source hardware
    addressing scalability bottlenecks and hardware compatibility constraints that,
    limited Cardano sidechain deployment. Funded via community vote on Ideascale;
@@ -111,7 +111,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
     Prototyped interconnection services for crypto mining data centres. Full cycle:
     value proposition, feasibility, simulation, prototype, pitch.
-    I developed Linux services with Podman, cloud, and serverless on tunnels.
+    Developed Linux services with Podman; deployed on cloud and serverless environments over Tailscale tunnels.
 
 ### 2016--19
 
@@ -151,9 +151,9 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 ::: {.callout type="tip"}
 
--  A [serverless API] for a virtual Tailscale microservice.
+-  A [serverless API] for a virtual Tailscale microservice, exposed via Tailscale Funnel.
 
- - A fast [CLI aggregator] for job feeds and APIs to extract feature sets and query data, with a composable query DSL for filtering and ranking.
+ - A fast [CLI aggregator] for job feeds and APIs to crawl meta-data, and filter results via a declarative DSL or keyword query before printing ranked jobs.
 
 -  A [CLI] tool to query the SourceHut GraphQL API.
 :::
@@ -165,7 +165,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
     Secondary: English
 
 
-[proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
+[winning proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
 
 [cluster]: https://gitlab.com/xameer/nixos-gitlab-kube-ci/
 
