@@ -153,7 +153,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 -  A [serverless API] for a virtual Tailscale microservice, exposed via Tailscale Funnel.
 
- - A fast [CLI aggregator] tool for job feeds and APIs, exposing a dynamically typed, declarative DSL for querying and filtering structured job data.
+ - A hybrid job- [ranking CLI] Rust crawler, a typed AST-based predicate DSL for structured filtering, NLP feature extraction aligned to a skill ontology, and a logistic regression model trained on labelled results -- rule-based scoring that learns from use.
 
 -  A [CLI] tool to query the SourceHut GraphQL API.
 :::
@@ -172,7 +172,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 [serverless API]: https://gitlab.com/xameer/rs-comment-api
 
-[CLI aggregator]: https://gitlab.com/xameer/jobpipe
+[ranking CLI]: https://gitlab.com/xameer/jobpipe
 
 [blog]: https://xameer.gitlab.io
 
