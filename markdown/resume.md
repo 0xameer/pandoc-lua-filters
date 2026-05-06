@@ -158,9 +158,10 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 - A [serverless API] for a virtual Tailscale microservice, exposed via Tailscale Funnel.
 
-- A hybrid job-[ranking CLI]: Rust crawler with a typed AST-based predicate DSL.
-  It extracts NLP features aligned to a skill ontology,for a logistic regression model, trained on
-  labelled results and scores them by rules. The model learns from usage pattern.
+- A hybrid job-[ranking CLI]: async Rust crawler (Tokio, semaphore-bounded
+concurrency) with a typed AST predicate DSL, NLP concept extraction over
+a synonym ontology, and a logistic regression model trained on
+SQLite-persisted weak labels that tightens on usage.
 
 - A [CLI] tool to query the SourceHut GraphQL API.
 
