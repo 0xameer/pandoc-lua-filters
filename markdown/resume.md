@@ -17,16 +17,16 @@ colorlinks: true
 ## Summary
 
 ::: {.callout type="note"}
-> Infrastructure architect and functional programmer with 15+ years of applied
-> experience across distributed systems, Kubernetes operations, cloud infrastructure,
-> and service design. Specialises in infrastructure as code (Terraform, Nix/NixOS),
-> Kubernetes administration, declarative systems, and cost-efficient self-hosted
-> platforms. Track record of reducing CI and cloud compute costs through binary
-> caching, reproducible builds, and system-level design. Experienced in Kubernetes operations, infrastructure debugging, and
-> root-cause analysis on self-hosted systems.
+> Infrastructure architect and ML pipeline engineer with 15+ years of applied experience across distributed systems,
+Kubernetes operations, cloud infrastructure,
+> and service API design. Specialises in infrastructure as code (Terraform, Nix/NixOS), declarative systems, and
+cost-efficient self-hosted platforms.
+> Experienced in end-to-end ML pipeline architecture: feature extraction, weak supervision, embedding-based ranking, and
+experiment tracking with MLflow.
+> Track record of reducing CI and cloud compute costs through binary caching, reproducible builds, and system-level
+design.
 
-Available for remote senior/staff roles in Platform Engineering, SRE,
-Distributed Systems, or Functional Programming.
+Available for remote senior and staff roles in infrastructure, ML platform, and API/service architecture.
 :::
 
 I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
@@ -158,10 +158,10 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 - A [serverless API] for a virtual Tailscale microservice, exposed via Tailscale Funnel.
 
-- A hybrid job-[ranking CLI]: async Rust crawler (Tokio, semaphore-bounded
-concurrency) with a typed AST predicate DSL, NLP concept extraction over
-a synonym ontology, and a logistic regression model trained on
-SQLite-persisted weak labels that tightens on usage.
+- A hybrid ML ranking CLI [jobpipe], with  async Rust crawler with bounded concurrency), with a typed AST predicate DSL,
+NLP concept extraction over a synonym ontology.
+And a logistic regression model over sentence-transformer embeddings trained on SQLite-persisted weak labels, SQL stores
+the ground truth; a script shifts the decision boundary with every label added.
 
 - A [CLI] tool to query the SourceHut GraphQL API.
 
@@ -176,7 +176,7 @@ Primary: Hindi · Secondary: English (professional)
 [winning proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
 [cluster]: https://gitlab.com/xameer/nixos-gitlab-kube-ci/
 [serverless API]: https://gitlab.com/xameer/rs-comment-api
-[ranking CLI]: https://gitlab.com/xameer/jobpipe
+[jobpipe]: https://gitlab.com/xameer/jobpipe
 [Blog]: https://xameer.gitlab.io
 [MicroBlog]: https://mathstodon.xyz/@xameer
 [Git Forges]: https://gitlab.com/xameer
