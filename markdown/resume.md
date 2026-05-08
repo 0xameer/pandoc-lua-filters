@@ -68,7 +68,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 :::
 
----
+\newpage
 
 ## Selected Projects
 
@@ -93,8 +93,6 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
   vote; partnered with D.A.O. Konma (Chennai).
 
 :::
-
----
 
 ## Experience
 
@@ -123,7 +121,7 @@ infrastructure.
 Frontend features and backend integrations for seed-funded startups. Web
 administration, deployment, and application firewalls.
 
----
+\newpage
 
 ### 2015--16 · Data Science Lead -- Examify, Mumbai
 
@@ -132,8 +130,6 @@ NLP pattern recognition and ML with CUDA. Reported to CTO and CEO.
 ### 2010--12 · Faculty, Physics
 
 Preparatory physics for IIT-JEE at incorporated commercial institutes.
-
----
 
 ## Education
 
@@ -145,8 +141,6 @@ Preparatory physics for IIT-JEE at incorporated commercial institutes.
 ::: {.callout type="tip"}
 Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 :::
-
----
 
 ## Open Source
 
@@ -163,8 +157,6 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 - A [CLI] tool to query the SourceHut GraphQL API.
 
 :::
-
----
 
 ## Communication
 
