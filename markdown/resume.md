@@ -63,7 +63,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 :::
 
-\newpage
+---
 
 ## Selected Projects
 
@@ -116,7 +116,7 @@ infrastructure.
 Frontend features and backend integrations for seed-funded startups. Web
 administration, deployment, and application firewalls.
 
-\newpage
+---
 
 ### 2015--16 · Data Science Lead -- Examify, Mumbai
 
@@ -143,7 +143,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 - A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
 
-- - A CLI [jobpipe]: shortlists job posts from board feeds against your profile --
+- A CLI [jobpipe]: shortlists job posts from board feeds against your profile --
   the candidate-side inversion of recruiter sourcing. A synonym ontology projects
   symbolic job concepts into vector space; logistic regression over
   sentence-transformer embeddings re-ranks by your labelling history.
