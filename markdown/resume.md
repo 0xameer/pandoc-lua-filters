@@ -58,13 +58,11 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 - **API & Service Design**
 
-  REST/CRUD webhooks, protocol implementation, serverless (Cloudflare Workers),
-  container-native services (Podman, Docker).
+  REST/CRUD webhooks, serverless (Cloudflare Workers), Podman, Docker.
 
 - **Binary Caching & CI Optimisation**
 
-  Cachix, Attic (R2-backed), FastCDC chunk tuning -- ~80% CI time reduction
-  through cache layer design.
+  Cachix, Attic (R2-backed), FastCDC -- ~80% CI time reduction.
 
 :::
 
