@@ -38,18 +38,15 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 - **Infrastructure & SRE**
 
   Kubernetes (bare-metal, CRI-O, etcd, secretbox), Terraform, Pulumi, NixOS/NixPkgs,
-  GitLab CI/CD, GitOps, declarative VM provisioning, zero-trust networking
-  (Tailscale, Cloudflare Tunnel).
+  GitLab CI/CD, GitOps, zero-trust networking (Tailscale, Cloudflare Tunnel).
 
 - **Observability & Reliability**
 
-  Kubernetes dashboards (Grafana, Monit), stack trace analysis, root-cause debugging,
-  CI optimisation, incident debugging on self-hosted infrastructure.
+  Grafana, Monit, stack trace analysis, root-cause debugging, incident response.
 
 - **Storage & Data**
 
-  MinIO (S3-compatible), Longhorn (Kubernetes PVC), OpenEBS, Restic, Turso/libSQL,
-  etcd, AWS S3/CSI.
+  MinIO, Longhorn, OpenEBS, Restic, Turso/libSQL, etcd, AWS S3/CSI.
 
 - **Programming Languages**
 
@@ -58,11 +55,11 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 - **API & Service Design**
 
-  REST/CRUD webhooks, serverless (Cloudflare Workers), Podman, Docker.
+  REST/CRUD, webhooks, serverless (Cloudflare Workers), Podman, Docker.
 
-- **Binary Caching & CI Optimisation**
+- **Binary Caching & CI**
 
-  Cachix, Attic (R2-backed), FastCDC -- ~80% CI time reduction.
+  Cachix, Attic (Cloudflare-backed), FastCDC -- ~80% CI time reduction.
 
 :::
 
@@ -146,11 +143,11 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 - A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
 
-- A hybrid ML [jobpipe]: async Rust crawler (Tokio, semaphore-bounded concurrency),
-  typed AST predicate DSL, NLP concept extraction over a synonym ontology, and a
-  logistic regression model over sentence-transformer embeddings. SQLite persists
-  ground-truth labels; each label shifts the decision boundary on retrain.
-  Experiment tracking via MLflow.
+- - A CLI [jobpipe]: candidate-side ML pipeline inverting recruiter sourcing.
+  A synonym ontology projects symbolic job concepts into vector space; a
+  logistic regression over sentence-transformer embeddings re-ranks by your
+  labelling history. Async Rust crawler (Tokio), typed AST predicate DSL,
+  SQLite ground truth, MLflow experiment tracking.
 
 - A [CLI] tool to query the SourceHut GraphQL API.
 
