@@ -17,7 +17,7 @@ colorlinks: true
 
 ## Summary
 
-::: {.callout type="note"}
+
 > Infrastructure architect and ML pipeline engineer with 15+ years across distributed
 > systems, Kubernetes operations, and service design. Specialises in IaC (Terraform,
 > NixOS), declarative systems, and cost-efficient self-hosted platforms. Experienced
@@ -26,13 +26,13 @@ colorlinks: true
 > costs through binary caching and reproducible builds.
 
 Available for remote senior/staff roles in infrastructure, ML platform, or API/service architecture.
-:::
+
 
 I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
 ## Core Competencies
 
-::: {.callout type="warning"}
+
 
 - **Infrastructure & SRE**
 
@@ -60,7 +60,7 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
   Cachix, Attic (Cloudflare-backed), FastCDC -- ~80% CI time reduction.
 
-:::
+
 
 ---
 
@@ -87,6 +87,23 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
   vote; partnered with D.A.O. Konma (Chennai).
 
 :::
+
+## Open Source
+
+
+
+- A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
+
+- A CLI [jobpipe]: shortlists job posts from board feeds against your profile --
+  the candidate-side inversion of recruiter sourcing. A synonym ontology projects
+  symbolic job concepts into vector space; logistic regression over
+  sentence-transformer embeddings re-ranks by your labelling history.
+  Async Rust crawler (Tokio), typed AST predicate DSL, SQLite ground truth,
+  MLflow experiment tracking.
+
+- A [CLI] tool to query the SourceHut GraphQL API.
+
+---
 
 ## Experience
 
@@ -115,7 +132,7 @@ infrastructure.
 Frontend features and backend integrations for seed-funded startups. Web
 administration, deployment, and application firewalls.
 
----
+
 
 ### 2015--16 · Data Science Lead -- Examify, Mumbai
 
@@ -123,7 +140,9 @@ NLP pattern recognition and ML with CUDA. Reported to CTO and CEO.
 
 ### 2010--12 · Faculty, Physics
 
-Preparatory physics for IIT-JEE at incorporated commercial institutes.
+ Preparatory physics for IIT-JEE at incorporated commercial institutes.
+
+---
 
 ## Education
 
@@ -136,22 +155,7 @@ Preparatory physics for IIT-JEE at incorporated commercial institutes.
 Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 :::
 
-## Open Source
 
-::: {.callout type="tip"}
-
-- A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
-
-- A CLI [jobpipe]: shortlists job posts from board feeds against your profile --
-  the candidate-side inversion of recruiter sourcing. A synonym ontology projects
-  symbolic job concepts into vector space; logistic regression over
-  sentence-transformer embeddings re-ranks by your labelling history.
-  Async Rust crawler (Tokio), typed AST predicate DSL, SQLite ground truth,
-  MLflow experiment tracking.
-
-- A [CLI] tool to query the SourceHut GraphQL API.
-
-:::
 
 ## Communication
 

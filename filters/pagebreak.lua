@@ -1,14 +1,28 @@
 -- pagebreak.lua
--- Only explicit \newpage or \pagebreak triggers page breaks.
--- Horizontal rules remain visual separators.
+-- Horizontal rules become minimal section separators.
+-- Explicit \newpage and \pagebreak still work.
 
 function HorizontalRule()
   if FORMAT:match("latex") then
-    return pandoc.RawBlock("latex", "\\vspace{0.5em}\\hrule\\vspace{0.5em}")
+    return pandoc.RawBlock(
+      "latex",
+      [[
+\vspace{0.4em}
+\begin{center}
+{\small\textcolor{gray}{·\ \ ·\ \ ·}}
+\end{center}
+\vspace{0.2em}
+]]
+    )
+
   elseif FORMAT:match("html") then
     return pandoc.RawBlock(
       "html",
-      "<hr>"
+      [[
+<div style="text-align:center; margin:0.5em 0; color:#888;">
+· &nbsp; · &nbsp; ·
+</div>
+]]
     )
   end
 end
@@ -20,6 +34,7 @@ function Para(el)
     if txt == "\\newpage" or txt == "\\pagebreak" then
       if FORMAT:match("latex") then
         return pandoc.RawBlock("latex", "\\newpage")
+
       elseif FORMAT:match("html") then
         return pandoc.RawBlock(
           "html",
