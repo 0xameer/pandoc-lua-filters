@@ -20,7 +20,7 @@ function HorizontalRule()
       "html",
       [[
 <div style="text-align:center; margin:0.5em 0; color:#888;">
-· &nbsp; · &nbsp; ·
+🖧
 </div>
 ]]
     )

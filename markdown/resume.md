@@ -11,8 +11,6 @@ colorlinks: true
 
 ::: {.contact-footer}
 > <xameer@zohomail.in> • +91 799 311 0170 • Ananthapur, India •
-> [gitlab.com/xameer](https://gitlab.com/xameer) •
-> [xameer.gitlab.io](https://xameer.gitlab.io)
 :::
 
 ## Summary
