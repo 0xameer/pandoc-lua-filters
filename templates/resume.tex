@@ -1,49 +1,88 @@
-% resume.tex \u2014 pandoc template for resume.md
-% adapted from pandoc-moderncv / mrzool cv-boilerplate style
-% compiled with LuaLaTeX
+% resume.tex \u2014 compact pandoc template for resume.md
+% optimized for 3-page technical resume
+% compile with LuaLaTeX
+
 \documentclass[${fontsize}]{article}
+
 \usepackage{fontspec}
 \usepackage[${geometry}]{geometry}
+
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{parskip}
 \usepackage{microtype}
 
 % fonts
 \setmainfont{DejaVu Serif}
 \setmonofont{DejaVu Sans Mono}
 
-% section styling \u2014 all lua-filter style calls go through these
-\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
-\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
-\titlespacing{\section}{0pt}{1em}{0.5em}
+% compact paragraph spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.25em}
 
-% hyperref
+% avoid ugly page stretching
+\raggedbottom
+\emergencystretch=2em
+
+% section styling
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries}
+  {}
+  {0em}
+  {}
+
+% tighter spacing
+\titlespacing{\section}{0pt}{0.6em}{0.3em}
+\titlespacing{\subsection}{0pt}{0.4em}{0.2em}
+
+% hyperlinks
 \hypersetup{
   colorlinks=true,
   urlcolor=blue,
   linkcolor=blue,
 }
 
-% tighter lists
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.5em}
-\setlist[description]{style=nextline, leftmargin=6em, labelwidth=5.5em}
+% compact lists
+\setlist[itemize]{
+  noitemsep,
+  topsep=1pt,
+  parsep=0pt,
+  partopsep=0pt,
+  leftmargin=1.2em
+}
 
-% no page numbers on a resume
+\setlist[description]{
+  style=nextline,
+  leftmargin=5.5em,
+  labelwidth=5em,
+  itemsep=0.2em
+}
+
+% no page numbers
 \pagestyle{empty}
+
+% prevent widows/orphans
+\widowpenalty=10000
+\clubpenalty=10000
 
 \begin{document}
 
-% title block \u2014 pandoc $title$ metadata
+% title block
 {\LARGE \textbf{$title$}}
 
 $if(date)$
 \hfill{\small $date$}
 $endif$
 
-\medskip
+\vspace{0.4em}
 
 $body$
 

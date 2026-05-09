@@ -3,8 +3,8 @@ title: "Sameer Gupta"
 author: "Sameer Gupta"
 date: "2026"
 lang: en
-fontsize: 11pt
-geometry: margin=2.5cm
+fontsize: 10pt
+geometry: margin=1.8cm
 colorlinks: true
 ---
 
