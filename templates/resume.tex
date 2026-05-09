@@ -22,7 +22,7 @@
 \setlength{\parskip}{0.25em}
 
 % avoid ugly page stretching
-\raggedbottom
+\flushbottom
 \emergencystretch=2em
 
 % section styling
@@ -76,13 +76,13 @@
 \begin{document}
 
 % title block
-{\LARGE \textbf{$title$}}
+\begin{center}
+{\LARGE \textbf{$title$}}\\[0.4em]
+{\large $author$}\\[0.2em]
+{\small $date$}
+\end{center}
 
-$if(date)$
-\hfill{\small $date$}
-$endif$
-
-\vspace{0.4em}
+\vspace{0.6em}
 
 $body$
 

@@ -1,5 +1,5 @@
 ---
-title: "Sameer Gupta"
+title: "Resume"
 author: "Sameer Gupta"
 date: "2026"
 lang: en
@@ -8,7 +8,6 @@ geometry: margin=1.8cm
 colorlinks: true
 ---
 
-# Sameer Gupta
 
 ::: {.contact-footer}
 > <xameer@zohomail.in> • +91 799 311 0170 • Ananthapur, India •
