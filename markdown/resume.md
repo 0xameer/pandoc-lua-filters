@@ -143,11 +143,12 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 - A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
 
-- - A CLI [jobpipe]: candidate-side ML pipeline inverting recruiter sourcing.
-  A synonym ontology projects symbolic job concepts into vector space; a
-  logistic regression over sentence-transformer embeddings re-ranks by your
-  labelling history. Async Rust crawler (Tokio), typed AST predicate DSL,
-  SQLite ground truth, MLflow experiment tracking.
+- - A CLI [jobpipe]: shortlists job posts from board feeds against your profile --
+  the candidate-side inversion of recruiter sourcing. A synonym ontology projects
+  symbolic job concepts into vector space; logistic regression over
+  sentence-transformer embeddings re-ranks by your labelling history.
+  Async Rust crawler (Tokio), typed AST predicate DSL, SQLite ground truth,
+  MLflow experiment tracking.
 
 - A [CLI] tool to query the SourceHut GraphQL API.
 
