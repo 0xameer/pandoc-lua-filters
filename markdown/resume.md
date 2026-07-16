@@ -10,18 +10,18 @@ colorlinks: true
 
 
 ::: {.contact-footer}
-> <xameer@zohomail.in> • +91 799 311 0170 • Ananthapur, India •
+> <xameer@zohomail.in> - +91 799 311 0170 - Ananthapur, India -
 :::
 
 ## Summary
 
 
-> Infrastructure architect and ML pipeline engineer with 15+ years across distributed
-> systems, Kubernetes operations, and service design. Specialises in IaC (Terraform,
-> NixOS), declarative systems, and cost-efficient self-hosted platforms. Experienced
-> in end-to-end ML pipelines: feature extraction, weak supervision, embedding-based
-> ranking, and experiment tracking (MLflow). Track record of reducing CI and compute
-> costs through binary caching and reproducible builds.
+
+> Infrastructure architect and platform engineer with 15+ years across distributed systems,
+> Kubernetes operations, and service design. Specialises in IaC (Terraform,NixOS), declarative
+> systems, and cost-efficient self-hosted platforms. Rust and Haskell for data pipelines,
+> typed DSLs, and runtime program analysis. Track record of reducing CI and compute costs
+> via binary caching and reproducible builds.
 
 Available for remote senior/staff roles in infrastructure, ML platform, or API/service architecture.
 
@@ -65,41 +65,30 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 ## Selected Projects
 
 ::: {.callout type="note"}
+    Trace-Align -- Runtime Execution Diff (2025--26)
 
-- **NixOS Kubernetes Cluster (2025--26)**
+-    Haskell CLI verifying jobpipe refactors by aligning JSONL runtime traces fromtwo function versions and diffing diverging intermediate states (inspired byPLDI 2023 proof repair alignment). Uses a Template Haskell splice (makeTraced)to auto-instrument pure functions in Writer [TraceEvent] without IO. Integratedinto GitLab CI to block logic regressions during algorithmic refactors.
 
-  Production-grade *n*-node QEMU VM [cluster] on NixOS with fully reproducible
-  declarative cluster state. Administered Kubernetes (bare-metal, CRI-O, etcd).
-  CI-triggered rolling deployments via GitLab webhooks; services exposed over
-  Cloudflare Tunnel with zero-trust access.
+    Rust Microservices on NixOS Kubernetes (2024--25)
 
-- **Self-Hosted Platform & CI Optimisation (2026)**
+  -  Two-node QEMU VM cluster (K8s 1.35, CRI-O, etcd, Calico, ArgoCD). Live recoveryfrom etcd secretbox key corruption (zero data loss); Calico/Tailscale netfilterconflicts resolved via nft monitor trace to a missing cali* forward rule.Deployed proxy-svc (Rust/axum typestate validation proxy: Raw -> Shaped -> RatePassed -> Clean -> Forwarded), comment-api (IndieAuth, Turso/libSQL),and ops-dashboard (GitLab webhook receiver triggering kubectl rollout restart)via reproducible Nix OCI builds.
 
-  Eliminated external CI runner and CDN egress costs. Binary caching layer
-  (Cachix, Attic) achieved ~80% CI time reduction. Toolchain: Rust + Haskell.
+ -   Cardano DSL / Smart Contract System (2023--24)
 
-- **Cardano DSL / Smart Contract System (2023--24)**
-
-  Designed and wrote the [winning proposal] for an EDSL targeting Plutus smart
-  contract development on open-source hardware. Funded via Ideascale community
-  vote; partnered with D.A.O. Konma (Chennai).
+    Designed and wrote the winning proposal for an EDSL targeting Plutus smartcontract development. GADTs and phantom types enforced resource constraints atcompile time; denotational interpreter mapped DSL to Plutus Core via rewriterules. Batched state transitions reduced sidechain execution costs.
 
 :::
 
 ## Open Source
 
+-    trace-align: Haskell CLI for runtime execution trace diffing.
+
+ -   [jobpipe]: candidate-side job-ranking CLI. Typed ontology DSL projectingsymbolic concepts into vector space; logistic regression oversentence-transformer embeddings re-ranks by your labelling history.Async Rust crawler (Tokio), MLflow experiment tracking.
+
+-    A CLI [tool] to query the SourceHut GraphQL API.
 
 
 - A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
-
-- A CLI [jobpipe]: shortlists job posts from board feeds against your profile --
-  the candidate-side inversion of recruiter sourcing. A synonym ontology projects
-  symbolic job concepts into vector space; logistic regression over
-  sentence-transformer embeddings re-ranks by your labelling history.
-  Async Rust crawler (Tokio), typed AST predicate DSL, SQLite ground truth,
-  MLflow experiment tracking.
-
-- A [CLI] tool to query the SourceHut GraphQL API.
 
 ---
 
