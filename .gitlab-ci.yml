@@ -1,5 +1,6 @@
 build-pdfs:
   rules:
+    # Run only if pushing to main or stable, AND the specified files changed
     - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "stable"'
       changes:
         - markdown/**/*.md
@@ -36,6 +37,7 @@ build-pdfs:
       - result-pdfs-copy/*.pdf
       - output/*.html
     when: on_success
+
   after_script:
     - |
       if [ "$CI_JOB_STATUS" = "success" ] && { [ "$CI_COMMIT_BRANCH" = "main" ] || [ "$CI_COMMIT_BRANCH" = "stable" ]; }; then
@@ -46,5 +48,6 @@ build-pdfs:
         git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
         git add output/*.pdf output/*.html
         git diff --staged --quiet || git commit -m "ci: rebuild PDFs [skip ci]"
-        git push origin HEAD:${CI_COMMIT_BRANCH}
+        # Push back to the branch that triggered the pipeline
+        git push origin "HEAD:$CI_COMMIT_BRANCH"
       fi
