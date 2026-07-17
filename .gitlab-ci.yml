@@ -1,3 +1,4 @@
+# only for protected branch sicne my vars re masked
 build-pdfs:
   rules:
     # Run only if pushing to main or stable, AND the specified files changed
