@@ -147,8 +147,6 @@ NLP pattern recognition and ML with CUDA. Reported to CTO and CEO.
 Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 :::
 
-
-
 ## Communication
 
 Primary: Hindi · Secondary: English (professional)
