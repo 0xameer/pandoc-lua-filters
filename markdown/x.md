@@ -67,7 +67,9 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 ::: {.callout type="note"}
     Trace-Align -- Runtime Execution Diff (2025--26)
 
--    Haskell CLI verifying jobpipe refactors by aligning JSONL runtime traces fromtwo function versions and diffing diverging intermediate states (inspired byPLDI 2023 proof repair alignment). Uses a Template Haskell splice (makeTraced)to auto-instrument pure functions in Writer [TraceEvent] without IO. Integratedinto GitLab CI to block logic regressions during algorithmic refactors.
+-    Haskell CLI verifying jobpipe refactors by aligning JSON runtime traces from two function versions and diffing
+     diverging intermediate states (inspired byPLDI 2023 proof repair alignment). Uses a Template Haskell splice (make
+     Traced)to auto-instrument pure functions in Writer [TraceEvent] without IO. Integrated into GitLab CI to block logic regressions during algorithmic refactors.
 
     Rust Microservices on NixOS Kubernetes (2024--25)
 
@@ -75,7 +77,10 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 
  -   Cardano DSL / Smart Contract System (2023--24)
 
-    Designed and wrote the winning proposal for an EDSL targeting Plutus smartcontract development. GADTs and phantom types enforced resource constraints atcompile time; denotational interpreter mapped DSL to Plutus Core via rewriterules. Batched state transitions reduced sidechain execution costs.
+    Designed and wrote the winning proposal for an EDSL targeting Plutus smart contract development.
+    GADTs and phantom types enforced resource constraints at compile time; denotational interpreter
+    mapped  DSL to Plutus Core via rewrite rules. Batched state transitions reduced sidechain execution
+    costs.
 
 :::
 
