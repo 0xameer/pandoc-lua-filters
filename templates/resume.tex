@@ -1,17 +1,18 @@
 % resume.tex \u2014 compact pandoc template for resume.md
-% optimized for 3-page technical resume
-% compile with LuaLaTeX
+% optimized for 3-page technical resume, compile with LuaLaTeX
+% Fully self-contained: does not source preamble.tex. Keep the callout
+% style block below in sync with preamble.tex if you change one.
 
-\documentclass[${fontsize}]{article}
-
+\documentclass[$fontsize$]{article}
 \usepackage{fontspec}
-\usepackage[${geometry}]{geometry}
-
+\usepackage[$geometry$]{geometry}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{microtype}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{xurl}
 
 % fonts
 \setmainfont{DejaVu Serif}
@@ -32,18 +33,15 @@
   {0em}
   {}
   [\titlerule]
-
 \titleformat{\subsection}
   {\normalsize\bfseries}
   {}
   {0em}
   {}
 
-% tighter spacing
 \titlespacing{\section}{0pt}{0.6em}{0.3em}
 \titlespacing{\subsection}{0pt}{0.4em}{0.2em}
 
-% hyperlinks
 \hypersetup{
   colorlinks=true,
   urlcolor=blue,
@@ -58,7 +56,6 @@
   partopsep=0pt,
   leftmargin=1.2em
 }
-
 \setlist[description]{
   style=nextline,
   leftmargin=5.5em,
@@ -66,16 +63,61 @@
   itemsep=0.2em
 }
 
-% no page numbers
+% Pandoc injects \tightlist for compact lists, but it's only defined
+% in the default template. We define it here so custom templates work.
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
 \pagestyle{empty}
 
 % prevent widows/orphans
 \widowpenalty=10000
 \clubpenalty=10000
 
+% --- mdframed callout styles (identical to preamble.tex) ---
+\mdfdefinestyle{calloutnote}{%
+  linecolor=blue!45,
+  linewidth=0.8pt,
+  backgroundcolor=blue!5,
+  roundcorner=3pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  skipabove=8pt, skipbelow=8pt,
+  splittopskip=6pt, splitbottomskip=6pt,
+  needspace=3\baselineskip,
+}
+
+\mdfdefinestyle{callouttip}{%
+  linecolor=green!40!black,
+  linewidth=0.8pt,
+  backgroundcolor=green!5,
+  roundcorner=3pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  skipabove=8pt, skipbelow=8pt,
+  splittopskip=6pt, splitbottomskip=6pt,
+  needspace=3\baselineskip,
+}
+
+\mdfdefinestyle{calloutwarning}{%
+  linecolor=red!45,
+  linewidth=0.8pt,
+  backgroundcolor=red!5,
+  roundcorner=3pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  skipabove=8pt, skipbelow=8pt,
+  splittopskip=6pt, splitbottomskip=6pt,
+  needspace=3\baselineskip,
+}
+
+\newenvironment{callout-note}{\begin{mdframed}[style=calloutnote]\raggedright}{\end{mdframed}}
+\newenvironment{callout-tip}{\begin{mdframed}[style=callouttip]\raggedright}{\end{mdframed}}
+\newenvironment{callout-warning}{\begin{mdframed}[style=calloutwarning]\raggedright}{\end{mdframed}}
+\newenvironment{contact-footer}{\begin{center}\small\raggedright}{\end{center}}
+
+ $if(header-includes)$  $header-includes$  $endif$
 \begin{document}
 
-% title block
 \begin{center}
 {\LARGE \textbf{$title$}}\\[0.3em]
 {\large $author$}\\[0.15em]
@@ -86,6 +128,5 @@
 \hrule
 \vspace{0.6em}
 
-$body$
-
+ $body$
 \end{document}

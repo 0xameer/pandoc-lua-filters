@@ -1,4 +1,5 @@
 -- typographer.lua: smart punctuation for LuaLaTeX
+
 function Str(el)
   if not FORMAT:match("latex") then return nil end
   local s = el.text

@@ -1,6 +1,6 @@
 -- linenum.lua: line numbers on fenced code blocks tagged with .linenum
--- Example: ```python .linenum
 -- Requires: listings package in flake.nix
+
 function CodeBlock(el)
   if not el.classes:includes("linenum") then return nil end
   local lang = el.classes[1] or "text"

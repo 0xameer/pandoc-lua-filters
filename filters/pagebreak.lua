@@ -9,18 +9,17 @@ function HorizontalRule()
       [[
 \vspace{0.4em}
 \begin{center}
-{\small\textcolor{gray}{·\ \ ·\ \ ·}}
+{\small\textcolor{gray}{- \ - \ -}}
 \end{center}
 \vspace{0.2em}
 ]]
     )
-
   elseif FORMAT:match("html") then
     return pandoc.RawBlock(
       "html",
       [[
 <div style="text-align:center; margin:0.5em 0; color:#888;">
-🖧
+\u22b7
 </div>
 ]]
     )
@@ -30,11 +29,9 @@ end
 function Para(el)
   if #el.content == 1 and el.content[1].t == "Str" then
     local txt = el.content[1].text
-
     if txt == "\\newpage" or txt == "\\pagebreak" then
       if FORMAT:match("latex") then
         return pandoc.RawBlock("latex", "\\newpage")
-
       elseif FORMAT:match("html") then
         return pandoc.RawBlock(
           "html",

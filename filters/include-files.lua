@@ -1,5 +1,6 @@
 -- include-files.lua: splice another markdown file inline
 -- In markdown write a paragraph with only: !include relative/path.md
+
 function Para(el)
   if #el.content == 1 and el.content[1].t == "Str" then
     local path = el.content[1].text:match("^!include%s+(.+)$")

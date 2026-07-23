@@ -1,5 +1,60 @@
-\usepackage[skins,breakable]{tcolorbox}
+% preamble.tex \u2014 shared header-includes for documents using pandoc's default LaTeX template.
+% resume.tex is a fully custom template and does NOT source this file; it carries an
+% identical copy of the callout styles below so it stays self-contained. Keep both in sync.
+
+\usepackage{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{xurl}       % let long emails/URLs break instead of overflowing box width
+\usepackage{microtype}  % tighter justification, fewer overfull \hbox warnings
+
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{lualatex-math}
 \usepackage{mathtools}
+
+% --- mdframed callout styles ---
+% needspace: if <3 lines remain on the page, defer the WHOLE box to next page
+%            (avoids an orphaned 1-line header stuck at the bottom).
+% splittopskip/splitbottomskip: if the box is taller than one page, split
+%            cleanly mid-content instead of leaving a blank page gap.
+\mdfdefinestyle{calloutnote}{%
+  linecolor=blue!45,
+  linewidth=0.8pt,
+  backgroundcolor=blue!5,
+  roundcorner=3pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  skipabove=8pt, skipbelow=8pt,
+  splittopskip=6pt, splitbottomskip=6pt,
+  needspace=3\baselineskip,
+}
+
+\mdfdefinestyle{callouttip}{%
+  linecolor=green!40!black,
+  linewidth=0.8pt,
+  backgroundcolor=green!5,
+  roundcorner=3pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  skipabove=8pt, skipbelow=8pt,
+  splittopskip=6pt, splitbottomskip=6pt,
+  needspace=3\baselineskip,
+}
+
+\mdfdefinestyle{calloutwarning}{%
+  linecolor=red!45,
+  linewidth=0.8pt,
+  backgroundcolor=red!5,
+  roundcorner=3pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  skipabove=8pt, skipbelow=8pt,
+  splittopskip=6pt, splitbottomskip=6pt,
+  needspace=3\baselineskip,
+}
+
+% \raggedright prevents justified-text stretching from masking real overflow
+\newenvironment{callout-note}{\begin{mdframed}[style=calloutnote]\raggedright}{\end{mdframed}}
+\newenvironment{callout-tip}{\begin{mdframed}[style=callouttip]\raggedright}{\end{mdframed}}
+\newenvironment{callout-warning}{\begin{mdframed}[style=calloutwarning]\raggedright}{\end{mdframed}}
+\newenvironment{contact-footer}{\begin{center}\small\raggedright}{\end{center}}

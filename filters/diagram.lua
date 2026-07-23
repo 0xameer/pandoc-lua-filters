@@ -1,11 +1,8 @@
 -- diagram.lua: fenced tikz blocks -> LaTeX figure
--- Example:
---   ```tikz
---   \draw (0,0) -- (1,1);
---   ```
--- For category theory use tikz-cd arrows inside the block
 -- Requires: tikz, tikz-cd in flake.nix texlive combine
+
 local tikz_injected = false
+
 function CodeBlock(el)
   if not el.classes:includes("tikz") then return nil end
   if FORMAT:match("latex") then
@@ -16,6 +13,7 @@ function CodeBlock(el)
       "\n\\end{tikzpicture}\n\\end{figure}")
   end
 end
+
 function Meta(m)
   if FORMAT:match("latex") and not tikz_injected then
     tikz_injected = true

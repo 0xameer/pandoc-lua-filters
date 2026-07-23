@@ -10,7 +10,7 @@ colorlinks: true
 
 
 ::: {.contact-footer}
-> <xameer@zohomail.in> - +91 799 311 0170 - Ananthapur, India -
+> <xameer@zohomail.in> - +91 799 311 0170 - Ananthapur, India
 :::
 
 ## Summary
@@ -65,27 +65,39 @@ I commit to [Git Forges] and write on my [Blog] and [MicroBlog].
 ## Selected Projects
 
 ::: {.callout type="note"}
-    Trace-Align -- Runtime Execution Diff (2025--26)
+    Trace-Align -- Runtime Execution Diff, applied to jobpipe (2025--26)
 
--    Haskell CLI verifying jobpipe refactors by aligning JSONL runtime traces fromtwo function versions and diffing diverging intermediate states (inspired byPLDI 2023 proof repair alignment). Uses a Template Haskell splice (makeTraced)to auto-instrument pure functions in Writer [TraceEvent] without IO. Integratedinto GitLab CI to block logic regressions during algorithmic refactors.
+-    [trace-align] implements dynamic program alignment to diff runtime execution traces between
+     two versions of a function, pinpointing the exact iteration and
+     variable where refactored logic diverges. Template Haskell splice
+     (`makeTraced`) auto-instruments pure functions into
+     `Writer [TraceEvent]` without IO. Deployed in [jobpipe]'s GitLab CI --
+     a reproducible ML ranking pipeline (Rust + Python + MLflow) that
+     re-ranks job feeds via a model trained on labeling history -- to
+     block logic regressions during refactors of its scoring/ranking
+     algorithms.
 
     Rust Microservices on NixOS Kubernetes (2024--25)
 
-  -  Two-node QEMU VM cluster (K8s 1.35, CRI-O, etcd, Calico, ArgoCD). Live recoveryfrom etcd secretbox key corruption (zero data loss); Calico/Tailscale netfilterconflicts resolved via nft monitor trace to a missing cali* forward rule.Deployed proxy-svc (Rust/axum typestate validation proxy: Raw -> Shaped -> RatePassed -> Clean -> Forwarded), comment-api (IndieAuth, Turso/libSQL),and ops-dashboard (GitLab webhook receiver triggering kubectl rollout restart)via reproducible Nix OCI builds.
+  -  Two-node QEMU VM [cluster] (K8s 1.35, CRI-O, etcd, Calico, ArgoCD). Live recoveryfrom etcd secretbox key corruption
+     (zero data loss). Calico/Tailscale netfilterconflicts resolved via nft monitor trace to a missing cali* forward
+     rule. Deployed proxy-svc (Rust/axum typestate validation proxy: Raw -> Shaped -> RatePassed -> Clean -> Forwarded), comment-api (IndieAuth, Turso/libSQL),and ops-dashboard (GitLab webhook receiver triggering kubectl rollout restart)via reproducible Nix OCI builds.
 
  -   Cardano DSL / Smart Contract System (2023--24)
 
-    Designed and wrote the winning proposal for an EDSL targeting Plutus smartcontract development. GADTs and phantom types enforced resource constraints atcompile time; denotational interpreter mapped DSL to Plutus Core via rewriterules. Batched state transitions reduced sidechain execution costs.
+ -   Designed and wrote the [winning proposal] for an EDSL targeting Plutus smartcontract development. GADTs and phantom
+     types enforced resource constraints at compile time. Denotational interpreter mapped DSL to Plutus Core via rewrite rules. Batched state transitions reduced sidechain execution cost
 
 :::
 
 ## Open Source
 
--    trace-align: Haskell CLI for runtime execution trace diffing.
+-    [Trace-Align]: Haskell CLI for runtime execution trace diffing.
 
- -   [jobpipe]: candidate-side job-ranking CLI. Typed ontology DSL projectingsymbolic concepts into vector space; logistic regression oversentence-transformer embeddings re-ranks by your labelling history.Async Rust crawler (Tokio), MLflow experiment tracking.
+ -   [jobpipe]: candidate-side job-ranking CLI. Typed ontology DSL projecting symbolic concepts into vector space;
+     logistic regression over sentence-transformer embeddings re-ranks by your labelling history.Async Rust crawler (Tokio), MLflow experiment tracking.
 
--    A CLI [tool] to query the SourceHut GraphQL API.
+-    A [CLI] tool to query the SourceHut GraphQL API.
 
 
 - A [serverless API] for a virtual Tailscale microservice via Tailscale Funnel.
@@ -148,6 +160,7 @@ Dorm startup *JeeCarnot*: statistical analysis of competitive exam outcomes.
 
 Primary: Hindi · Secondary: English (professional)
 
+[trace-align]: https://gitlab.com/xameer/trace-align/
 [winning proposal]: https://www.catalystexplorer.com/en/proposals/haskledger-an-edsl-for-scalable-cardano-sidechains-f11/details
 [cluster]: https://gitlab.com/xameer/nixos-gitlab-kube-ci/
 [serverless API]: https://gitlab.com/xameer/rs-comment-api

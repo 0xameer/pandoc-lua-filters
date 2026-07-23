@@ -1,6 +1,8 @@
 -- math-format.lua: consistent display math spacing + lualatex-math fixes
 -- Requires: lualatex-math and mathtools in flake.nix texlive combine
+
 local injected = false
+
 function Meta(m)
   if FORMAT:match("latex") and not injected then
     injected = true
